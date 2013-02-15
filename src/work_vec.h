@@ -1,0 +1,285 @@
+/*------------------------------------------------------------------------------
+MODULE TYPE:		General purpose - work vector manager.
+PROJECT CODE:		--------------------------
+PROJECT FULL NAME:	--------------------------
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	--------------------------
+
+--------------------------------------------------------------------------------
+
+HEADER FILE NAME:	work_vec.h
+CREATED:			1994.04.20
+LAST MODIFIED:		1996.09.21
+
+DEPENDENCIES:		smartptr.h, vec_pool.h
+					<stdlib.h>, <assert.h>
+
+--------------------------------------------------------------------------------
+
+HEADER CONTENTS:
+	This header file contains definition and declaration of a class template
+"WorkVector" and its member functions. This class was primarily designed for
+project SIMPLEX, but may be used for any project. Its creation was trigerred by
+consideration of a way in which work vectors behave in different parts of
+project "SIMPLEX".
+	The numerous work vectors in "SIMPLEX" came in a limited number of sizes and
+element data types, namely two different vector dimensions and three different
+data types were used. Additionally, although rather few (i.e. in the range of
+ten) work vectors were actually used at any one time, they belonged to different
+classes. Consequently, significantly more vectors were allocated, than there
+were needed.
+	Then I realized there were problems with work vector management, which arose
+when a work vector (usually with a meaningful name "w1" or "w2") was filled with
+some values at one point in the program, then was used much later, usually
+without proper control, which would ensure it was not overwritten with other
+data.
+	This was when the idea of class template "WorkVector" has arisen. This class
+is supposed to alleviate all those problems. A work space only for work vectors
+is maintained separately (class "WorkVectorPool", which has only static
+members). The work vectors may be distinguished by their names. A work vector
+may be created (by a constructor or "Create" function call), destroyed (by a
+destructor, or by "Destroy" function call), filled with values and left in the
+pool to be picked out at some later time (function calls "Detach" and "Attach").
+
+	NOTE: Work vectors that are not being used (are "locked") may
+explicitly be destroyed by direct calls to class "WorkVectorPool".
+
+	Since class "WorkVector<Obj>" inherits publicly a single "Array<Obj>"
+object, the work vector (once it is properly initialised to point to some memory
+location) behaves like an "Array<Obj>" object.
+	The work space manager (class "WorkVectorPool") takes care of actual memory
+allocation and deallocation, name searches, vector identifier assignment and
+other chores. See header file "vec_pool.h" for more information.
+
+------------------------------------------------------------------------------*/
+
+#ifndef __WORK_VEC_H__
+#define __WORK_VEC_H__
+
+#include <assert.h>
+
+#ifndef __SMARTPTR_H__
+#	include "smartptr.h"
+#endif
+#ifndef __VEC_POOL_H__
+#	include "vec_pool.h"
+#endif
+
+
+#ifdef NDEBUG
+#	define WORK_VECTOR_INLINE inline
+#else
+#	define WORK_VECTOR_INLINE
+#endif
+
+
+//==============================================================================
+//
+//	Definition of class template "WorkVector".
+//
+template < class Obj >
+class WorkVector : public Array<Obj>, public WorkVectorPool
+{
+private:
+	int VectorID;
+
+	static int VecType;
+
+	//--------------------------------------------------------------------------
+	//	Copy constructor and assignment operator member functio are declared
+	//	private in order to make them inaccessible to the users of the class.
+	//	If they weren't declared, the compiler would automatically generate them
+	//	as public functions.
+	//
+	//	Those functions are not to be defined. For the time being I can thisn of
+	//	no reasonable semantics of such functions, because work vectors are to
+	//	be identified by their labels (names assigned at creatin time).
+	//
+private:
+	WorkVector( const WorkVector<Obj> &wv );
+	const WorkVector<Obj> & operator =( const WorkVector<Obj> &wv );
+
+public:
+	//--------------------------------------------------------------------------
+	//	Constructors and destructor
+	//
+	WorkVector( void );
+	WorkVector( size_t len, const char *label = NULL );
+	~WorkVector( void );
+
+	//--------------------------------------------------------------------------
+	//	Methods for work vector management.
+	//
+	void Attach( size_t len, const char *label = NULL );
+	void Detach( void );
+	void Destroy( void );
+};
+//
+//	End of definition of class template "WorkVector".
+//
+//==============================================================================
+
+
+// ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !
+//
+//	GNU C++ does not accept explicit definitions of static data members
+//	of class templates. We thus (only in case of GNU C++) fail to initialize
+//	or define the static data member here.
+//
+#ifndef gnucc
+template < class Obj >
+int WorkVector<Obj>::VecType = NO_TYPE;
+#endif
+//
+// ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !
+
+
+//==============================================================================
+//
+//	Implementations of class template "WorkVector" functions.
+//
+
+//------------------------------------------------------------------------------
+//
+//	Object creation and destruction methods.
+//
+
+template < class Obj >
+WORK_VECTOR_INLINE
+WorkVector<Obj>::WorkVector( void )
+	: Array<Obj>(), VectorID( NO_VECTOR )
+{
+	if( VecType == NO_TYPE ) VecType = GetNewTypeID();
+}
+
+template < class Obj >
+WorkVector<Obj>::WorkVector( size_t _len, const char *label )
+	: Array<Obj>()
+{
+	if( VecType == NO_TYPE ) VecType = GetNewTypeID();
+
+#ifdef NDEBUG
+	MemoryBlock *SmartPointerBase<Obj>::mem;
+#endif
+
+	VectorID = WorkVectorPool::Attach( _len * sizeof( Obj ), VecType, SmartPointerBase<Obj>::mem,
+		label );
+
+	if( VectorID == NO_VECTOR )
+		VectorID = WorkVectorPool::Create( _len * sizeof( Obj ), VecType, SmartPointerBase<Obj>::mem,
+			label );
+
+	assert( VectorID != NO_VECTOR );
+	assert( SmartPointerBase<Obj>::mem->Len() >= _len * sizeof( Obj ) );
+
+#ifndef NDEBUG
+	SmartPointerBase<Obj>::start = (Obj *) (void *) *SmartPointerBase<Obj>::mem;
+	SmartPointerBase<Obj>::end = SmartPointerBase<Obj>::start + _len;
+#else
+	ptr = (Obj *) (void *) *SmartPointerBase<Obj>::mem;
+#endif
+}
+
+
+template < class Obj >
+WORK_VECTOR_INLINE
+WorkVector<Obj>::~WorkVector( void )
+{
+	if( VectorID != NO_VECTOR ) WorkVectorPool::Destroy( VectorID );
+
+	//
+	//	These three lines - to disable the "~SmartPoiterBase" destructor and
+	//	prevent it from deallocating the "MemoryBlock" object.
+	//
+#ifndef NDEBUG
+	SmartPointerBase<Obj>::start = SmartPointerBase<Obj>::end = NULL;
+	SmartPointerBase<Obj>::mem = NULL;
+#else
+	ptr = NULL;
+#endif
+}
+
+
+//------------------------------------------------------------------------------
+//
+//	Work vector management - user interface.
+//
+
+template < class Obj >
+void WorkVector<Obj>::Attach( size_t _len, const char *label )
+{
+	if( VectorID != WorkVectorPool::NO_VECTOR )
+		Destroy();
+
+#ifdef NDEBUG
+	MemoryBlock *SmartPointerBase<Obj>::mem;
+#endif
+
+	VectorID = WorkVectorPool::Attach( _len*sizeof( Obj ), VecType, SmartPointerBase<Obj>::mem,
+		label );
+
+	if( VectorID == NO_VECTOR )
+	{
+#ifndef NDEBUG
+		SmartPointerBase<Obj>::start = SmartPointerBase<Obj>::end = NULL;
+		SmartPointerBase<Obj>::mem = NULL;
+#else
+		ptr = NULL;
+#endif
+	}
+	else
+	{
+		assert( SmartPointerBase<Obj>::mem->Len() >= _len * sizeof( Obj ) );
+
+#ifndef NDEBUG
+		SmartPointerBase<Obj>::start = (Obj *) (void *) *SmartPointerBase<Obj>::mem;
+		SmartPointerBase<Obj>::end = SmartPointerBase<Obj>::start + _len;
+#else
+		ptr = (Obj *) (void *) *SmartPointerBase<Obj>::mem;
+#endif
+	}
+}
+
+
+template < class Obj >
+WORK_VECTOR_INLINE
+void WorkVector<Obj>::Detach( void )
+{
+	WorkVectorPool::Detach( VectorID );
+	VectorID = WorkVectorPool::NO_VECTOR;
+
+#ifndef NDEBUG
+	SmartPointerBase<Obj>::start = SmartPointerBase<Obj>::end = NULL;
+	SmartPointerBase<Obj>::mem = NULL;
+#else
+	ptr = NULL;
+#endif
+}
+
+
+template < class Obj >
+WORK_VECTOR_INLINE
+void WorkVector<Obj>::Destroy( void )
+{
+	assert( VectorID != WorkVectorPool::NO_VECTOR );
+
+	WorkVectorPool::Destroy( VectorID );
+	VectorID = WorkVectorPool::NO_VECTOR;
+
+#ifndef NDEBUG
+	SmartPointerBase<Obj>::start = SmartPointerBase<Obj>::end = NULL;
+	SmartPointerBase<Obj>::mem = NULL;
+#else
+	ptr = NULL;
+#endif
+}
+
+
+//
+//	End of implementations of class template "WorkVector" functions.
+//
+//==============================================================================
+
+#endif

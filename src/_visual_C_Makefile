@@ -1,0 +1,933 @@
+# Microsoft Developer Studio Generated NMAKE File, Based on NOB.dsp
+!IF "$(CFG)" == ""
+CFG=NOB - Win32 Debug
+!MESSAGE No configuration specified. Defaulting to NOB - Win32 Debug.
+!ENDIF 
+
+!IF "$(CFG)" != "NOB - Win32 Release" && "$(CFG)" != "NOB - Win32 Debug"
+!MESSAGE Invalid configuration "$(CFG)" specified.
+!MESSAGE You can specify a configuration when running NMAKE
+!MESSAGE by defining the macro CFG on the command line. For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "NOB.mak" CFG="NOB - Win32 Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "NOB - Win32 Release" (based on "Win32 (x86) Console Application")
+!MESSAGE "NOB - Win32 Debug" (based on "Win32 (x86) Console Application")
+!MESSAGE 
+!ERROR An invalid configuration is specified.
+!ENDIF 
+
+!IF "$(OS)" == "Windows_NT"
+NULL=
+!ELSE 
+NULL=nul
+!ENDIF 
+
+CPP=cl.exe
+RSC=rc.exe
+
+!IF  "$(CFG)" == "NOB - Win32 Release"
+
+OUTDIR=.\Release
+INTDIR=.\Release
+# Begin Custom Macros
+OutDir=.\Release
+# End Custom Macros
+
+ALL : "$(OUTDIR)\NOB.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\changelp.obj"
+	-@erase "$(INTDIR)\cl_list.obj"
+	-@erase "$(INTDIR)\config.obj"
+	-@erase "$(INTDIR)\crash.obj"
+	-@erase "$(INTDIR)\cust_opt.obj"
+	-@erase "$(INTDIR)\determlp.obj"
+	-@erase "$(INTDIR)\error.obj"
+	-@erase "$(INTDIR)\gnu_fix.obj"
+	-@erase "$(INTDIR)\gnu_fix1.obj"
+	-@erase "$(INTDIR)\gnu_fix2.obj"
+	-@erase "$(INTDIR)\gnu_fix3.obj"
+	-@erase "$(INTDIR)\gnu_fix4.obj"
+	-@erase "$(INTDIR)\history.obj"
+	-@erase "$(INTDIR)\init_bas.obj"
+	-@erase "$(INTDIR)\invaux.obj"
+	-@erase "$(INTDIR)\inverse.obj"
+	-@erase "$(INTDIR)\invfact.obj"
+	-@erase "$(INTDIR)\invsolve.obj"
+	-@erase "$(INTDIR)\invupd.obj"
+	-@erase "$(INTDIR)\io_dit.obj"
+	-@erase "$(INTDIR)\lexer.obj"
+	-@erase "$(INTDIR)\lp_sol.obj"
+	-@erase "$(INTDIR)\main.obj"
+	-@erase "$(INTDIR)\main_arg.obj"
+	-@erase "$(INTDIR)\makelab.obj"
+	-@erase "$(INTDIR)\mast_sol.obj"
+	-@erase "$(INTDIR)\memblock.obj"
+	-@erase "$(INTDIR)\mps_lp.obj"
+	-@erase "$(INTDIR)\num_elim.obj"
+	-@erase "$(INTDIR)\option.obj"
+	-@erase "$(INTDIR)\parsemps.obj"
+	-@erase "$(INTDIR)\parsespc.obj"
+	-@erase "$(INTDIR)\parsstoc.obj"
+	-@erase "$(INTDIR)\periods.obj"
+	-@erase "$(INTDIR)\postsolv.obj"
+	-@erase "$(INTDIR)\pp_integ.obj"
+	-@erase "$(INTDIR)\pp_primi.obj"
+	-@erase "$(INTDIR)\pp_simpl.obj"
+	-@erase "$(INTDIR)\pres_act.obj"
+	-@erase "$(INTDIR)\presolve.obj"
+	-@erase "$(INTDIR)\print.obj"
+	-@erase "$(INTDIR)\q1.obj"
+	-@erase "$(INTDIR)\q2.obj"
+	-@erase "$(INTDIR)\q3.obj"
+	-@erase "$(INTDIR)\q4.obj"
+	-@erase "$(INTDIR)\q5.obj"
+	-@erase "$(INTDIR)\q6.obj"
+	-@erase "$(INTDIR)\rand01.obj"
+	-@erase "$(INTDIR)\rd_solv.obj"
+	-@erase "$(INTDIR)\rd_sublp.obj"
+	-@erase "$(INTDIR)\read_act.obj"
+	-@erase "$(INTDIR)\read_lp.obj"
+	-@erase "$(INTDIR)\read_tim.obj"
+	-@erase "$(INTDIR)\rm_infea.obj"
+	-@erase "$(INTDIR)\row_anal.obj"
+	-@erase "$(INTDIR)\sc_tree.obj"
+	-@erase "$(INTDIR)\scenario.obj"
+	-@erase "$(INTDIR)\scentree.obj"
+	-@erase "$(INTDIR)\sing_col.obj"
+	-@erase "$(INTDIR)\smplx_lp.obj"
+	-@erase "$(INTDIR)\sol_lab.obj"
+	-@erase "$(INTDIR)\solution.obj"
+	-@erase "$(INTDIR)\solv_lp.obj"
+	-@erase "$(INTDIR)\solver1.obj"
+	-@erase "$(INTDIR)\solver2.obj"
+	-@erase "$(INTDIR)\solver3.obj"
+	-@erase "$(INTDIR)\solver4.obj"
+	-@erase "$(INTDIR)\solvpiv.obj"
+	-@erase "$(INTDIR)\solvpric.obj"
+	-@erase "$(INTDIR)\solvtol.obj"
+	-@erase "$(INTDIR)\sort_lab.obj"
+	-@erase "$(INTDIR)\start_pt.obj"
+	-@erase "$(INTDIR)\std_math.obj"
+	-@erase "$(INTDIR)\stochsol.obj"
+	-@erase "$(INTDIR)\strdup.obj"
+	-@erase "$(INTDIR)\sub_man.obj"
+	-@erase "$(INTDIR)\time_cnt.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vec_pool.obj"
+	-@erase "$(INTDIR)\writ_mps.obj"
+	-@erase "$(OUTDIR)\NOB.exe"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP_PROJ=/nologo /ML /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"$(INTDIR)\NOB.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\NOB.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"$(OUTDIR)\NOB.pdb" /machine:I386 /out:"$(OUTDIR)\NOB.exe" 
+LINK32_OBJS= \
+	"$(INTDIR)\writ_mps.obj" \
+	"$(INTDIR)\changelp.obj" \
+	"$(INTDIR)\cl_list.obj" \
+	"$(INTDIR)\config.obj" \
+	"$(INTDIR)\crash.obj" \
+	"$(INTDIR)\cust_opt.obj" \
+	"$(INTDIR)\determlp.obj" \
+	"$(INTDIR)\error.obj" \
+	"$(INTDIR)\gnu_fix.obj" \
+	"$(INTDIR)\gnu_fix1.obj" \
+	"$(INTDIR)\gnu_fix2.obj" \
+	"$(INTDIR)\gnu_fix3.obj" \
+	"$(INTDIR)\gnu_fix4.obj" \
+	"$(INTDIR)\history.obj" \
+	"$(INTDIR)\init_bas.obj" \
+	"$(INTDIR)\invaux.obj" \
+	"$(INTDIR)\inverse.obj" \
+	"$(INTDIR)\invfact.obj" \
+	"$(INTDIR)\invsolve.obj" \
+	"$(INTDIR)\invupd.obj" \
+	"$(INTDIR)\io_dit.obj" \
+	"$(INTDIR)\lexer.obj" \
+	"$(INTDIR)\lp_sol.obj" \
+	"$(INTDIR)\main.obj" \
+	"$(INTDIR)\main_arg.obj" \
+	"$(INTDIR)\makelab.obj" \
+	"$(INTDIR)\mast_sol.obj" \
+	"$(INTDIR)\memblock.obj" \
+	"$(INTDIR)\mps_lp.obj" \
+	"$(INTDIR)\num_elim.obj" \
+	"$(INTDIR)\option.obj" \
+	"$(INTDIR)\parsemps.obj" \
+	"$(INTDIR)\parsespc.obj" \
+	"$(INTDIR)\parsstoc.obj" \
+	"$(INTDIR)\periods.obj" \
+	"$(INTDIR)\postsolv.obj" \
+	"$(INTDIR)\pp_integ.obj" \
+	"$(INTDIR)\pp_primi.obj" \
+	"$(INTDIR)\pp_simpl.obj" \
+	"$(INTDIR)\pres_act.obj" \
+	"$(INTDIR)\presolve.obj" \
+	"$(INTDIR)\print.obj" \
+	"$(INTDIR)\q1.obj" \
+	"$(INTDIR)\q2.obj" \
+	"$(INTDIR)\q3.obj" \
+	"$(INTDIR)\q4.obj" \
+	"$(INTDIR)\q5.obj" \
+	"$(INTDIR)\q6.obj" \
+	"$(INTDIR)\rand01.obj" \
+	"$(INTDIR)\rd_solv.obj" \
+	"$(INTDIR)\rd_sublp.obj" \
+	"$(INTDIR)\read_act.obj" \
+	"$(INTDIR)\read_lp.obj" \
+	"$(INTDIR)\read_tim.obj" \
+	"$(INTDIR)\rm_infea.obj" \
+	"$(INTDIR)\row_anal.obj" \
+	"$(INTDIR)\sc_tree.obj" \
+	"$(INTDIR)\scenario.obj" \
+	"$(INTDIR)\scentree.obj" \
+	"$(INTDIR)\sing_col.obj" \
+	"$(INTDIR)\smplx_lp.obj" \
+	"$(INTDIR)\sol_lab.obj" \
+	"$(INTDIR)\solution.obj" \
+	"$(INTDIR)\solv_lp.obj" \
+	"$(INTDIR)\solver1.obj" \
+	"$(INTDIR)\solver2.obj" \
+	"$(INTDIR)\solver3.obj" \
+	"$(INTDIR)\solver4.obj" \
+	"$(INTDIR)\solvpiv.obj" \
+	"$(INTDIR)\solvpric.obj" \
+	"$(INTDIR)\solvtol.obj" \
+	"$(INTDIR)\sort_lab.obj" \
+	"$(INTDIR)\start_pt.obj" \
+	"$(INTDIR)\std_math.obj" \
+	"$(INTDIR)\stochsol.obj" \
+	"$(INTDIR)\strdup.obj" \
+	"$(INTDIR)\sub_man.obj" \
+	"$(INTDIR)\time_cnt.obj" \
+	"$(INTDIR)\vec_pool.obj"
+
+"$(OUTDIR)\NOB.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "NOB - Win32 Debug"
+
+OUTDIR=.\Debug
+INTDIR=.\Debug
+# Begin Custom Macros
+OutDir=.\Debug
+# End Custom Macros
+
+ALL : "$(OUTDIR)\NOB.exe"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\changelp.obj"
+	-@erase "$(INTDIR)\cl_list.obj"
+	-@erase "$(INTDIR)\config.obj"
+	-@erase "$(INTDIR)\crash.obj"
+	-@erase "$(INTDIR)\cust_opt.obj"
+	-@erase "$(INTDIR)\determlp.obj"
+	-@erase "$(INTDIR)\error.obj"
+	-@erase "$(INTDIR)\gnu_fix.obj"
+	-@erase "$(INTDIR)\gnu_fix1.obj"
+	-@erase "$(INTDIR)\gnu_fix2.obj"
+	-@erase "$(INTDIR)\gnu_fix3.obj"
+	-@erase "$(INTDIR)\gnu_fix4.obj"
+	-@erase "$(INTDIR)\history.obj"
+	-@erase "$(INTDIR)\init_bas.obj"
+	-@erase "$(INTDIR)\invaux.obj"
+	-@erase "$(INTDIR)\inverse.obj"
+	-@erase "$(INTDIR)\invfact.obj"
+	-@erase "$(INTDIR)\invsolve.obj"
+	-@erase "$(INTDIR)\invupd.obj"
+	-@erase "$(INTDIR)\io_dit.obj"
+	-@erase "$(INTDIR)\lexer.obj"
+	-@erase "$(INTDIR)\lp_sol.obj"
+	-@erase "$(INTDIR)\main.obj"
+	-@erase "$(INTDIR)\main_arg.obj"
+	-@erase "$(INTDIR)\makelab.obj"
+	-@erase "$(INTDIR)\mast_sol.obj"
+	-@erase "$(INTDIR)\memblock.obj"
+	-@erase "$(INTDIR)\mps_lp.obj"
+	-@erase "$(INTDIR)\num_elim.obj"
+	-@erase "$(INTDIR)\option.obj"
+	-@erase "$(INTDIR)\parsemps.obj"
+	-@erase "$(INTDIR)\parsespc.obj"
+	-@erase "$(INTDIR)\parsstoc.obj"
+	-@erase "$(INTDIR)\periods.obj"
+	-@erase "$(INTDIR)\postsolv.obj"
+	-@erase "$(INTDIR)\pp_integ.obj"
+	-@erase "$(INTDIR)\pp_primi.obj"
+	-@erase "$(INTDIR)\pp_simpl.obj"
+	-@erase "$(INTDIR)\pres_act.obj"
+	-@erase "$(INTDIR)\presolve.obj"
+	-@erase "$(INTDIR)\print.obj"
+	-@erase "$(INTDIR)\q1.obj"
+	-@erase "$(INTDIR)\q2.obj"
+	-@erase "$(INTDIR)\q3.obj"
+	-@erase "$(INTDIR)\q4.obj"
+	-@erase "$(INTDIR)\q5.obj"
+	-@erase "$(INTDIR)\q6.obj"
+	-@erase "$(INTDIR)\rand01.obj"
+	-@erase "$(INTDIR)\rd_solv.obj"
+	-@erase "$(INTDIR)\rd_sublp.obj"
+	-@erase "$(INTDIR)\read_act.obj"
+	-@erase "$(INTDIR)\read_lp.obj"
+	-@erase "$(INTDIR)\read_tim.obj"
+	-@erase "$(INTDIR)\rm_infea.obj"
+	-@erase "$(INTDIR)\row_anal.obj"
+	-@erase "$(INTDIR)\sc_tree.obj"
+	-@erase "$(INTDIR)\scenario.obj"
+	-@erase "$(INTDIR)\scentree.obj"
+	-@erase "$(INTDIR)\sing_col.obj"
+	-@erase "$(INTDIR)\smplx_lp.obj"
+	-@erase "$(INTDIR)\sol_lab.obj"
+	-@erase "$(INTDIR)\solution.obj"
+	-@erase "$(INTDIR)\solv_lp.obj"
+	-@erase "$(INTDIR)\solver1.obj"
+	-@erase "$(INTDIR)\solver2.obj"
+	-@erase "$(INTDIR)\solver3.obj"
+	-@erase "$(INTDIR)\solver4.obj"
+	-@erase "$(INTDIR)\solvpiv.obj"
+	-@erase "$(INTDIR)\solvpric.obj"
+	-@erase "$(INTDIR)\solvtol.obj"
+	-@erase "$(INTDIR)\sort_lab.obj"
+	-@erase "$(INTDIR)\start_pt.obj"
+	-@erase "$(INTDIR)\std_math.obj"
+	-@erase "$(INTDIR)\stochsol.obj"
+	-@erase "$(INTDIR)\strdup.obj"
+	-@erase "$(INTDIR)\sub_man.obj"
+	-@erase "$(INTDIR)\time_cnt.obj"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(INTDIR)\vec_pool.obj"
+	-@erase "$(INTDIR)\writ_mps.obj"
+	-@erase "$(OUTDIR)\NOB.exe"
+	-@erase "$(OUTDIR)\NOB.ilk"
+	-@erase "$(OUTDIR)\NOB.pdb"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP_PROJ=/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"$(INTDIR)\NOB.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /GZ  /c 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\NOB.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"$(OUTDIR)\NOB.pdb" /debug /machine:I386 /out:"$(OUTDIR)\NOB.exe" /pdbtype:sept 
+LINK32_OBJS= \
+	"$(INTDIR)\writ_mps.obj" \
+	"$(INTDIR)\changelp.obj" \
+	"$(INTDIR)\cl_list.obj" \
+	"$(INTDIR)\config.obj" \
+	"$(INTDIR)\crash.obj" \
+	"$(INTDIR)\cust_opt.obj" \
+	"$(INTDIR)\determlp.obj" \
+	"$(INTDIR)\error.obj" \
+	"$(INTDIR)\gnu_fix.obj" \
+	"$(INTDIR)\gnu_fix1.obj" \
+	"$(INTDIR)\gnu_fix2.obj" \
+	"$(INTDIR)\gnu_fix3.obj" \
+	"$(INTDIR)\gnu_fix4.obj" \
+	"$(INTDIR)\history.obj" \
+	"$(INTDIR)\init_bas.obj" \
+	"$(INTDIR)\invaux.obj" \
+	"$(INTDIR)\inverse.obj" \
+	"$(INTDIR)\invfact.obj" \
+	"$(INTDIR)\invsolve.obj" \
+	"$(INTDIR)\invupd.obj" \
+	"$(INTDIR)\io_dit.obj" \
+	"$(INTDIR)\lexer.obj" \
+	"$(INTDIR)\lp_sol.obj" \
+	"$(INTDIR)\main.obj" \
+	"$(INTDIR)\main_arg.obj" \
+	"$(INTDIR)\makelab.obj" \
+	"$(INTDIR)\mast_sol.obj" \
+	"$(INTDIR)\memblock.obj" \
+	"$(INTDIR)\mps_lp.obj" \
+	"$(INTDIR)\num_elim.obj" \
+	"$(INTDIR)\option.obj" \
+	"$(INTDIR)\parsemps.obj" \
+	"$(INTDIR)\parsespc.obj" \
+	"$(INTDIR)\parsstoc.obj" \
+	"$(INTDIR)\periods.obj" \
+	"$(INTDIR)\postsolv.obj" \
+	"$(INTDIR)\pp_integ.obj" \
+	"$(INTDIR)\pp_primi.obj" \
+	"$(INTDIR)\pp_simpl.obj" \
+	"$(INTDIR)\pres_act.obj" \
+	"$(INTDIR)\presolve.obj" \
+	"$(INTDIR)\print.obj" \
+	"$(INTDIR)\q1.obj" \
+	"$(INTDIR)\q2.obj" \
+	"$(INTDIR)\q3.obj" \
+	"$(INTDIR)\q4.obj" \
+	"$(INTDIR)\q5.obj" \
+	"$(INTDIR)\q6.obj" \
+	"$(INTDIR)\rand01.obj" \
+	"$(INTDIR)\rd_solv.obj" \
+	"$(INTDIR)\rd_sublp.obj" \
+	"$(INTDIR)\read_act.obj" \
+	"$(INTDIR)\read_lp.obj" \
+	"$(INTDIR)\read_tim.obj" \
+	"$(INTDIR)\rm_infea.obj" \
+	"$(INTDIR)\row_anal.obj" \
+	"$(INTDIR)\sc_tree.obj" \
+	"$(INTDIR)\scenario.obj" \
+	"$(INTDIR)\scentree.obj" \
+	"$(INTDIR)\sing_col.obj" \
+	"$(INTDIR)\smplx_lp.obj" \
+	"$(INTDIR)\sol_lab.obj" \
+	"$(INTDIR)\solution.obj" \
+	"$(INTDIR)\solv_lp.obj" \
+	"$(INTDIR)\solver1.obj" \
+	"$(INTDIR)\solver2.obj" \
+	"$(INTDIR)\solver3.obj" \
+	"$(INTDIR)\solver4.obj" \
+	"$(INTDIR)\solvpiv.obj" \
+	"$(INTDIR)\solvpric.obj" \
+	"$(INTDIR)\solvtol.obj" \
+	"$(INTDIR)\sort_lab.obj" \
+	"$(INTDIR)\start_pt.obj" \
+	"$(INTDIR)\std_math.obj" \
+	"$(INTDIR)\stochsol.obj" \
+	"$(INTDIR)\strdup.obj" \
+	"$(INTDIR)\sub_man.obj" \
+	"$(INTDIR)\time_cnt.obj" \
+	"$(INTDIR)\vec_pool.obj"
+
+"$(OUTDIR)\NOB.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ENDIF 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+
+!IF "$(NO_EXTERNAL_DEPS)" != "1"
+!IF EXISTS("NOB.dep")
+!INCLUDE "NOB.dep"
+!ELSE 
+!MESSAGE Warning: cannot find "NOB.dep"
+!ENDIF 
+!ENDIF 
+
+
+!IF "$(CFG)" == "NOB - Win32 Release" || "$(CFG)" == "NOB - Win32 Debug"
+SOURCE=..\rdcode\changelp.cpp
+
+"$(INTDIR)\changelp.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\cl_list.cpp
+
+"$(INTDIR)\cl_list.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\config.cpp
+
+"$(INTDIR)\config.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\crash.cpp
+
+"$(INTDIR)\crash.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\cust_opt.cpp
+
+"$(INTDIR)\cust_opt.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\determlp.cpp
+
+"$(INTDIR)\determlp.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\error.cpp
+
+"$(INTDIR)\error.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\gnu_fix.cpp
+
+"$(INTDIR)\gnu_fix.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\gnu_fix1.cpp
+
+"$(INTDIR)\gnu_fix1.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\gnu_fix2.cpp
+
+"$(INTDIR)\gnu_fix2.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\gnu_fix3.cpp
+
+"$(INTDIR)\gnu_fix3.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\gnu_fix4.cpp
+
+"$(INTDIR)\gnu_fix4.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\history.cpp
+
+"$(INTDIR)\history.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\init_bas.cpp
+
+"$(INTDIR)\init_bas.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\invaux.cpp
+
+"$(INTDIR)\invaux.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\inverse.cpp
+
+"$(INTDIR)\inverse.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\invfact.cpp
+
+"$(INTDIR)\invfact.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\invsolve.cpp
+
+"$(INTDIR)\invsolve.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\invupd.cpp
+
+"$(INTDIR)\invupd.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\io_dit.cpp
+
+"$(INTDIR)\io_dit.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\lexer.cpp
+
+"$(INTDIR)\lexer.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\lp_sol.cpp
+
+"$(INTDIR)\lp_sol.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\main.cpp
+
+"$(INTDIR)\main.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\main_arg.cpp
+
+"$(INTDIR)\main_arg.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\makelab.cpp
+
+"$(INTDIR)\makelab.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\mast_sol.cpp
+
+"$(INTDIR)\mast_sol.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\memblock.cpp
+
+"$(INTDIR)\memblock.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\mps_lp.cpp
+
+"$(INTDIR)\mps_lp.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\num_elim.cpp
+
+"$(INTDIR)\num_elim.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\option.cpp
+
+"$(INTDIR)\option.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\parsemps.cpp
+
+"$(INTDIR)\parsemps.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\parsespc.cpp
+
+"$(INTDIR)\parsespc.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\parsstoc.cpp
+
+"$(INTDIR)\parsstoc.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\periods.cpp
+
+"$(INTDIR)\periods.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\postsolv.cpp
+
+"$(INTDIR)\postsolv.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\pp_integ.cpp
+
+"$(INTDIR)\pp_integ.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\pp_primi.cpp
+
+"$(INTDIR)\pp_primi.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\pp_simpl.cpp
+
+"$(INTDIR)\pp_simpl.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\pres_act.cpp
+
+"$(INTDIR)\pres_act.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\presolve.cpp
+
+"$(INTDIR)\presolve.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\print.cpp
+
+"$(INTDIR)\print.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\q1.cpp
+
+"$(INTDIR)\q1.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\q2.cpp
+
+"$(INTDIR)\q2.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\q3.cpp
+
+"$(INTDIR)\q3.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\q4.cpp
+
+"$(INTDIR)\q4.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\q5.cpp
+
+"$(INTDIR)\q5.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\q6.cpp
+
+"$(INTDIR)\q6.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\rand01.cpp
+
+"$(INTDIR)\rand01.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\rd_solv.cpp
+
+"$(INTDIR)\rd_solv.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\rd_sublp.cpp
+
+"$(INTDIR)\rd_sublp.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\read_act.cpp
+
+"$(INTDIR)\read_act.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\read_lp.cpp
+
+"$(INTDIR)\read_lp.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\read_tim.cpp
+
+"$(INTDIR)\read_tim.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\rm_infea.cpp
+
+"$(INTDIR)\rm_infea.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\row_anal.cpp
+
+"$(INTDIR)\row_anal.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\sc_tree.cpp
+
+"$(INTDIR)\sc_tree.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\scenario.cpp
+
+"$(INTDIR)\scenario.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\scentree.cpp
+
+"$(INTDIR)\scentree.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\sing_col.cpp
+
+"$(INTDIR)\sing_col.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\smplx_lp.cpp
+
+"$(INTDIR)\smplx_lp.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\sol_lab.cpp
+
+"$(INTDIR)\sol_lab.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\solution.cpp
+
+"$(INTDIR)\solution.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\solv_lp.cpp
+
+"$(INTDIR)\solv_lp.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\solver1.cpp
+
+"$(INTDIR)\solver1.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\solver2.cpp
+
+"$(INTDIR)\solver2.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\solver3.cpp
+
+"$(INTDIR)\solver3.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\solver4.cpp
+
+"$(INTDIR)\solver4.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\solvpiv.cpp
+
+"$(INTDIR)\solvpiv.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\solvpric.cpp
+
+"$(INTDIR)\solvpric.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\solvtol.cpp
+
+"$(INTDIR)\solvtol.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\sort_lab.cpp
+
+"$(INTDIR)\sort_lab.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\start_pt.cpp
+
+"$(INTDIR)\start_pt.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\std_math.cpp
+
+"$(INTDIR)\std_math.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\stochsol.cpp
+
+"$(INTDIR)\stochsol.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\strdup.cpp
+
+"$(INTDIR)\strdup.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\sub_man.cpp
+
+"$(INTDIR)\sub_man.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\time_cnt.cpp
+
+"$(INTDIR)\time_cnt.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\vec_pool.cpp
+
+"$(INTDIR)\vec_pool.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+SOURCE=..\rdcode\writ_mps.cpp
+
+"$(INTDIR)\writ_mps.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+
+!ENDIF 
+

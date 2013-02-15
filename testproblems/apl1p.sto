@@ -1,0 +1,26 @@
+STOCH                  apl1p
+INDEP         DISCRETE
+    RHS       ROW00005        900.00   PERIOD02          0.15
+    RHS       ROW00005       1000.00   PERIOD02          0.45
+    RHS       ROW00005       1100.00   PERIOD02          0.25
+    RHS       ROW00005       1200.00   PERIOD02          0.15
+    RHS       ROW00006        900.00   PERIOD02          0.15
+    RHS       ROW00006       1000.00   PERIOD02          0.45
+    RHS       ROW00006       1100.00   PERIOD02          0.25
+    RHS       ROW00006       1200.00   PERIOD02          0.15
+    RHS       ROW00007        900.00   PERIOD02          0.15
+    RHS       ROW00007       1000.00   PERIOD02          0.45
+    RHS       ROW00007       1100.00   PERIOD02          0.25
+    RHS       ROW00007       1200.00   PERIOD02          0.15
+* note the sign is negative on the B matrix element (as it would 
+* appear on the left hand side)
+    COL00001  ROW00003         -1.00   PERIOD02          0.20
+    COL00001  ROW00003         -0.90   PERIOD02          0.30
+    COL00001  ROW00003         -0.50   PERIOD02          0.40
+    COL00001  ROW00003         -0.10   PERIOD02          0.10
+    COL00002  ROW00004         -1.00   PERIOD02          0.10
+    COL00002  ROW00004         -0.90   PERIOD02          0.20
+    COL00002  ROW00004         -0.70   PERIOD02          0.50
+    COL00002  ROW00004         -0.10   PERIOD02          0.10
+    COL00002  ROW00004         -0.00   PERIOD02          0.10
+ENDATA

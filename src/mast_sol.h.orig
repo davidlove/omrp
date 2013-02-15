@@ -1,0 +1,303 @@
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Project core code.
+PROJECT CODE:		REGULARIXED DECOMPOSITION
+PROJECT FULL NAME:	Implementation of the regularized decomposition for two
+					stage linear programs.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej Ruszczynski
+
+--------------------------------------------------------------------------------
+
+HEADER FILE NAME:	mast_sol.h
+CREATED:			1994.07.03
+LAST MODIFIED:		1996.06.21
+
+DEPENDENCIES:		stdtype.h, solv_lp.h, stochsol.h, qdx_pub.h, sub_man.h,
+					<stdio.h>
+
+--------------------------------------------------------------------------------
+
+HEADER CONTENTS:
+	x
+
+------------------------------------------------------------------------------*/
+
+
+#ifndef __MAST_SOL_H__
+#define __MAST_SOL_H__ 
+
+#ifndef __STDTYPE_H__
+#	include "stdtype.h"
+#endif
+#ifndef __SOLV_LP_H__
+#	include "solv_lp.h"
+#endif
+#ifndef __QDX_PUB_H__ 
+#	include "qdx_pub.h" 
+#endif
+#ifndef __SUB_MAN_H__
+#	include "sub_man.h"
+#endif
+#ifndef __STOCHSOL_H__
+#	include "stochsol.h"
+#endif
+
+
+#define PENALTY_LO		(1.0e-6)
+#define PENALTY_HI		(1.0e+2)
+#define PENALTY_DEF		(1.0e-2)
+
+
+//==============================================================================
+//
+//	Class "MasterSolver" declaration.
+//
+//==============================================================================
+
+class Scenarios;
+
+class MasterSolver
+{
+private:
+	//--------------------------------------------------------------------------
+	//	Problem dimensions.
+	//
+	Int_T     n,		// Number of the first stage variables.
+		      l,		// Number of blocks.
+		  mdmat;		// Number of the first stage constraints.
+	
+	//--------------------------------------------------------------------------
+	//	Algorithm parameters.
+	//
+	Int_T itmax,		// Maximum number of iterations.
+		  istop,		// Why the algorithm stopped.
+						// 0 : default ?
+						// 2 : opt sol found
+						// 3 : hot start
+						// 4 : suboptimal sol found
+						// 5 : induced and direct constraints inconsistent
+						// 9 : new scen(s) added, restart
+						// 10: xhat is given. Only want objective estimates of f(xhat)
+						// 11: a 2nd xhat is given, store obj values seperately
+						// 100 : ?
+
+		  levprt;		// Verbosity level (0,1,2,3)
+
+	Real_T initpen;		// Initial value of penalty is stored here.
+
+	//--------------------------------------------------------------------------
+	//	First stage constraint matrix.
+	//
+	Real_T *dmat;		// [nz] First stage constraint matrix by rows.
+	Int_T  *jcol;		// [nz] Column numbers in subsequent rows.
+	Int_T  *iptr;		// [n+1] Row starts.
+
+	Real_T *bmin,		// [mdmat] Lower and upper bounds on first stage
+		   *bmax,	    // [mdmat] constraint row activity.
+	       *xmax, *xmin;// [n] Simple bounds on the first stage variables.
+
+	//--------------------------------------------------------------------------
+	// Basic vectors related to points 
+	//
+	Real_T *x,			// [n] Regularization point.
+		*y,				// [n] Vector of 1st stage variables.
+		*yb;			// [n] Auxiliary vector; used in calculations for y 
+
+	//--------------------------------------------------------------------------
+	// Basic vectors related to cuts 
+	//
+
+	Array<Real_T> g,	// [n*(n+2*l)] Array (2D) of cut gradients
+				a,		// [n+2*l] Cut intercepts
+				v,		// [l] Objective function estimates for blocks
+				weight; // [l] Cuts' weights (objective also treated as a cut, its weight =1)
+	
+	//These are defined as Array<Real_T> to allow for quick updating when the number
+	//of scenarios (l) is increased.
+
+	//--------------------------------------------------------------------------
+	// Vectors used for Solving the Master Problem
+	//
+	Real_T	*q,			// [n] Used in orthogonalization of the added cut/bound
+		*r,				// [n*(n+1)/2] G=QR (upper triangular matrix R of QR factorization of G
+						// stored in rows...
+		
+		//both z and w are auxilary vectors used for solving Reg. Master				
+		*z,				// [n] R_Trans*w = a 
+		*w,				// [n] z = Q_Trans*yb
+		//so that (1/penlty)*R*pricenb = w + z
+
+		*pricnb,		// [n+1] prices of nonbasic cuts
+		*pi,			// [n+1] Pi is used throughout the algorithm to make calculations, also 
+						//		 Multipliers for the new active set. 
+		*col;			// [n]  Column to be added to "r" (when adding a cut)
+
+
+	Array<Real_T> dpb,	// [l] ? One use: dpb[k] = pricba[k] - weight[k]
+				pricba; // [l]   prices of basic cuts	
+
+
+	//--------------------------------------------------------------------------
+	//Vectors related to committee of cuts
+	//
+	Int_T *inonba;		// [n+1] From 1 to nfix gives index to fixed variables
+						//       From nfix+1 to mtot gives # of an active nonbasic cut in G
+	
+	Array<Int_T>
+			iblock,		// [n+2*l] Tells to which block a given cut belongs.
+			ibasic,		// [l]     Number of a basic cut for block l in G.
+			icheck,		// [n+2*l] Indicator whether a cut needs to be checked.
+			ieq,		// [n+2*l] Is a costraint an equation.
+			drow; 		// [n+2*l] Gives the row # of the 1st stage constraint in committee
+		 
+	//--------------------------------------------------------------------------
+	//Variable Bounds and First Stage Constraint Bounds
+	//	
+	Int_T *irn,			// [n] Index to free variables (=var.s not fixed to their bounds)
+		  *istat,		// [n] Status of the variable wrt to its bounds  (?)
+						// -1: var. at its upper bound
+						//  0: At its lower bound  (>??)  (maybe at one of its bounds!)
+						//  1: ?
+						//  2: In between lower and upper bounds  (initialization) 
+					
+		  *marks,		// [mdmat] Marks if a constraint has been checked.
+		  *status;		// [mdmat] Status of a constraint. 
+						// -1: violated from bmin <==
+						//  0: not violated (initialization)
+						//  1: violated from >= bmax
+						//  2: if the constraint is an equation and violated
+
+		//Selection of a constraint to enter the committee of cuts:
+						//First, all contraints are checked, violated ones are marked.
+						//Then, only marked constraints are checked, most violated one
+						//is selected. Marks are kept for other still violated ones. 
+						//If not marked contr.s remain, all members are checked again. 
+
+	//--------------------------------------------------------------------------
+	//	Objective value
+	//
+	Real_T Objective;
+
+	//--------------------------------------------------------------------------
+	//	Subproblem solution routine pointer
+	//
+	RD_SubproblemManager *SubMan;
+	
+	//--------------------------------------------------------------------------
+
+
+	//@BEGIN--------------------------------------------------------------------
+	//		 For the Single Replication Procedure to test solution quality::
+	//		 These store f(xhat,xi_i) and (1/n)*sum[i=1 to n, f(xhat,xi_i)]
+	//
+	// Note: defining as Array<Real_T> just to be safe, maybe in the future, 
+	//		 if we need to do sequential sampling... 
+	//
+	Array<Real_T>  ExpC,	//[l] stores 2nd stage obj values for a fiven 
+							//    xhat, last one is the 1st stage obj (cx)
+				   ExpC2;   //the same for a second xhat
+
+	Real_T		ExpCost,	// (1/n)*sum[i=1 to n, f(xhat,xi_i)]
+				ExpCost2;	//the same for a second xhat
+
+	// Note2: These are not used unles istop = 10 or 11! 
+	//@END----------------------------------------------------------------------
+
+
+public:
+	MasterSolver( const SolvableLP &lp, const Scenarios &Scen );
+	~MasterSolver( void );
+
+	void SetPenalty( Real_T pen );
+	Real_T GetPenalty( void ) const;
+
+	void SetSubproblemManager( RD_SubproblemManager &sub );
+	void SetStartingPoint( const Array<Real_T> &x1, const Int_T x1n );
+	Int_T Solve( void );
+
+	StochSolution *GetSolution( void );
+
+
+	//@BEGIN--------------------------------------------------------------------
+	//These functions are used to set the master again to re-solve the problem 
+	//   when a new scenario(s) is (are) added:
+	
+	void SetiStop( int is );
+	void Setl ( int il ); 
+	void ReInitialize( int InitScen ); 
+
+	//This is just for reinitialization w/o adding a new scenario
+
+	void ReInit( void ); 
+
+	//These functions are used for testing solution quality:
+	
+	Real_T CalculateVariance (Real_T& gap); 
+	Real_T CalculateVariance2 (void); 
+	Real_T CalculateGap ( void ); 
+	void SetWeights ( void ); 
+
+	//This function is Similar to GetSolution but is created to prevent
+	//memory leak.
+
+	void FillSolution( StochSolution *sol ); 
+
+	//@END----------------------------------------------------------------------
+};
+
+//==============================================================================
+//
+//	End of class "MasterSolver" declaration.
+//
+//==============================================================================
+
+
+inline
+void MasterSolver::SetSubproblemManager( RD_SubproblemManager &sub )
+{ SubMan = &sub; }
+
+inline
+Real_T MasterSolver::GetPenalty( void )
+const
+{ return initpen; }
+
+//@BEGIN--------------------------------------------
+inline 
+void MasterSolver::SetiStop( int is )
+{ istop = is; }
+
+inline
+void MasterSolver::Setl( int il )
+{ l = il; }
+
+inline 
+void MasterSolver::SetWeights ( void )
+{
+	int i;
+	for(i=0; i<l-1; i++)
+		weight[i]=(double) 1/(l-1);
+	weight[l-1] = 1; 
+}
+
+
+inline
+Real_T MasterSolver::CalculateGap (void)
+{
+	//This function assumes that for a given xhat, 
+	//  1.) ExpC is filled and ExpCost is calculated. 
+	//  2.) The zn* problem is solved.
+	//
+	//Then, the function calcultes the gap 
+	// for testing solution quality 
+
+	//just for MRP, do not need to calculate variance, 
+	//so, this funct is for quick get gap...
+
+	return  ExpCost - Objective;  //minimization problem
+}
+
+//@END----------------------------------------------
+
+#endif

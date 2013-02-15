@@ -1,0 +1,1709 @@
+==> changelp.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Stochastic data parser and scenario generator.
+PROJECT CODE:		REGULARIXED DECOMPOSITION
+PROJECT FULL NAME:	Implementation of the regularized decomposition for two
+					stage linear programs.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej Ruszczynski
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	changelp.cpp
+CREATED:			1995.12.27
+LAST MODIFIED:		1996.04.09
+
+DEPENDENCIES:		stdtype.h, smartptr.h, changelp.h
+					<assert.h>
+
+--------------------------------------------------------------------------------
+
+==> cl_list.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Specialized list.
+PROJECT CODE:		-----------------
+PROJECT FULL NAME:	-----------------
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	-----------------
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	cl_list.cpp
+CREATED:			1994.01.12
+LAST MODIFIED:		1995.10.05
+
+DEPENDENCIES:		cl_list.h, stdtype.h, smartptr.h, error.h, memblock.h,
+					smartdcl.h, sptr_deb.h, sptr_ndb.h
+					<assert.h>
+
+--------------------------------------------------------------------------------
+
+==> config.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		General purpose code
+PROJECT CODE:		--------------------
+PROJECT FULL NAME:	--------------------
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	--------------------
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	config.cpp
+CREATED:			1994.12.28
+LAST MODIFIED:		1996.10.07
+
+DEPENDENCIES:		config.h, option.h, smartptr.h, stdtype.h, error.h
+					<assert.h>, <stdlib.h>, <string.h>
+
+--------------------------------------------------------------------------------
+
+
+==> crash.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming, simplex type basis construction.
+PROJECT CODE:		Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	dr. Jacek Gondzio, prof. Andrzej P. Wierzbicki
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	crash.cpp
+CREATED:			1993.05.17
+LAST MODIFIED:		1996.10.07
+
+DEPENDENCIES:		smartptr.h, stdtype.h, std_tmpl.h, error.h, mps_lp.h,
+					solv_lp.h, smplx_lp.h, solvcode.h, crash.h, print.h
+					<math.h>
+
+
+==> cust_opt.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		General purpose code
+PROJECT CODE:		--------------------
+PROJECT FULL NAME:	--------------------
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	--------------------
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	cust_opt.cpp
+CREATED:			1995.10.27
+LAST MODIFIED:		1995.10.27
+
+DEPENDENCIES:		stdtype.h, smartptr.h, my_defs.h, option.h, cust_opt.h,
+					presolve/pre_code.h
+					<stdlib.h>
+
+--------------------------------------------------------------------------------
+
+==> determlp.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Stochastic data parser and scenario generator.
+PROJECT CODE:		REGULARIXED DECOMPOSITION
+PROJECT FULL NAME:	Implementation of the regularized decomposition for two
+					stage linear programs.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej Ruszczynski
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	determlp.cpp
+CREATED:			1995.07.31
+LAST MODIFIED:		1996.04.16
+
+DEPENDENCIES:		detrmlp.h, mps_lp.h, lp_codes.h
+					<assert.h>
+
+--------------------------------------------------------------------------------
+
+==> error.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Set of functions.
+PROJECT CODE:		General purpose module.
+PROJECT FULL NAME:	-----------------------
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	-----------------------
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	error.cpp
+CREATED:			1993.09.11
+LAST MODIFIED:		1995.10.29
+
+DEPENDENCIES:		error.h,
+					<stdarg.h>, <stdio.h>, <stdlib.h>, <string.h>, <assert.h>
+
+--------------------------------------------------------------------------------
+
+
+==> gnu_fix1.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming, linear problem presolving.
+PROJECT CODE:		PRESOLVER
+PROJECT FULL NAME:	Linear problem presolver implementation.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	dr Jacek Gondzio, prof. Andrzej P. Wierzbicki
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	gnu_fix.cpp
+CREATED:			1994.01.12
+LAST MODIFIED:		1996.10.07
+
+DEPENDENCIES:		stdtype.h, std_tmpl.h, smartptr.h, error.h, memblock.h,
+					smartdcl.h, sptr_deb.h, sptr_ndb.h, work_vec.h, vec_pool.h,
+					myalloc.h
+
+--------------------------------------------------------------------------------
+
+==> gnu_fix2.cpp <==
+#ifndef __STD_TMPL_H__
+#	include "std_tmpl.h"
+#endif
+#ifndef __SCENARIO_H__
+#	include "scenario.h"
+#endif
+
+//------------------------------------------------------------------------------
+//	Implicit template instantiation (for GNU C++  ver. 2.6.2 or later only).
+//
+#if defined( explicit_templates )
+
+//------------------------------------------------------------------------------
+//	Implementation of some function templates from the "std_tmpl.h".
+//
+
+template void Fill( Real_T *array, Int_T len, const Real_T &val );
+template void Fill( Int_T *array, Int_T len, const Int_T &val );
+
+//
+
+==> gnu_fix3.cpp <==
+//------------------------------------------------------------------------------
+//	Explicit template instantiation (for GNU C++  ver. 2.6.2 or later only).
+//
+#if defined( explicit_templates )
+
+#include <stdlib.h>
+
+#ifndef __STDTYPE_H__
+#	include "stdtype.h"
+#endif
+#ifndef __STD_TMPL_H__
+#	include "std_tmpl.h"
+#endif
+#ifndef __SMARTPTR_H__
+#	include "smartptr.h"
+#endif
+#ifndef __WORK_VEC_H__
+#	include "work_vec.h"
+#endif
+#ifndef __MYALLOC_H__
+
+==> gnu_fix4.cpp <==
+#if defined( explicit_templates )
+
+#ifndef __STDTYPE_H__
+#	include "stdtype.h"
+#endif
+
+#ifndef __STD_TMPL_H__
+#	include "std_tmpl.h"
+#endif
+#ifndef __WORK_VEC_H__
+#	include "work_vec.h"
+#endif
+
+
+//------------------------------------------------------------------------------
+//	File "smartptr.h" templates' instatiations.
+//
+template class SmartPointerBase<Int_T>;
+template class Array<Int_T>;
+template class Ptr<Int_T>;
+
+==> history.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Project core code.
+PROJECT CODE:       Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej P. Wierzbicki, dr Jacek Gondzio.
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	history.cpp
+CREATED:			1993.10.24
+LAST MODIFIED:		1994.08.16
+
+DEPENDENCIES:		history.cpp, stdtype.h, history.h, solvcode.h, error.h
+					<assert.h>
+
+--------------------------------------------------------------------------------
+
+==> init_bas.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Project core code.
+PROJECT CODE:       Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej P. Wierzbicki, dr Jacek Gondzio.
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	init_bas.cpp
+CREATED:            1994.04.16
+LAST MODIFIED:		1995.08.12
+
+DEPENDENCIES:       stdtype.h, std_tmpl.h, error.h, solver.h, solvcode.h,
+					std_math.h, smartptr.h, print.h
+
+--------------------------------------------------------------------------------
+
+==> invaux.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Factorization routines for sparse matrices.
+PROJECT CODE:		Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method for large
+					scale linear problems.
+
+MODULE AUTHOR:		prof. Andrzej Ruszczynski (original version),
+					Artur Swietanowski (revisions).
+
+PROJECT SUPERVISOR:	prof. A. P. Wierzbicki, dr Jacek Gondzio.
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	invaux.cpp
+CREATED:			1991.12.29 by prof. A. Ruszczynski
+LAST MODIFIED:		1995.09.12
+
+DEPENDENCIES:		smartptr.h, stdtype.h, error.h, invaux.h
+					<math.h>, <assert.h>
+
+
+==> inverse.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Factorization routines for sparse matrices.
+PROJECT CODE:		Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method for large
+					scale linear problems.
+
+MODULE AUTHOR:		prof. Andrzej Ruszczynski (original version),
+					Artur Swietanowski (revisions).
+
+PROJECT SUPERVISOR:	prof. A. P. Wierzbicki, dr Jacek Gondzio.
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	inverse.cpp
+CREATED:			1991.12.29 by prof. A. Ruszczynski
+LAST MODIFIED:		1996.02.06
+
+DEPENDENCIES:		smartptr.h, stdtype.h, std_tmpl.h, error.h, inverse.h
+					std_math.h, vec_pool.h
+
+
+==> invfact.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Factorization routines for sparse matrices.
+PROJECT CODE:		Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method for large
+					scale linear problems.
+
+MODULE AUTHOR:		prof. Andrzej Ruszczynski (original version),
+					Artur Swietanowski (revisions).
+
+PROJECT SUPERVISOR:	prof. A. P. Wierzbicki, dr Jacek Gondzio.
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	invfact.cpp
+CREATED:			1991.12.29 by prof. A. Ruszczynski
+LAST MODIFIED:		1996.09.21
+
+DEPENDENCIES:		smartptr.h, stdtype.h, std_tmpl.h, error.h, inverse.h,
+					invaux.h, std_math.h, work_vec.h
+					<math.h>
+
+==> invsolve.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Factorization routines for sparse matrices.
+PROJECT CODE:		Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method for large
+					scale linear problems.
+
+MODULE AUTHOR:		prof. Andrzej Ruszczynski - initial version,
+					Artur Swietanowski - ammendments & all sparse versions of
+					functions
+
+PROJECT SUPERVISOR:	prof. A. P. Wierzbicki, dr Jacek Gondzio
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	invsolve.cpp
+CREATED:			1993.05.28
+LAST MODIFIED:		1996.02.06
+
+DEPENDENCIES:		smartptr.h, stdtype.h, std_tmpl.h, error.h, inverse.h,
+					std_math.h, work_vec.h
+
+==> invupd.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Factorization routines for sparse matrices.
+PROJECT CODE:		Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method for large
+					scale linear problems.
+
+MODULE AUTHOR:		prof. Andrzej Ruszczynski (original version),
+					Artur Swietanowski (revisions).
+
+PROJECT SUPERVISOR:	prof. A. P. Wierzbicki, dr Jacek Gondzio.
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	invupd.cpp
+CREATED:			1991.12.29 by prof. A. Ruszczynski
+LAST MODIFIED:		1996.02.06
+
+DEPENDENCIES:		smartptr.h, stdtype.h, std_tmpl.h, error.h, inverse.h,
+					invaux.h, std_math.h, work_vec.h
+					<math.h>
+
+==> io_dit.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming - general purpose.
+PROJECT CODE:		---------------
+PROJECT FULL NAME:	---------------
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	---------------
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	io_dit.cpp
+CREATED:			1995.02.01
+LAST MODIFIED:		1996.02.03
+
+DEPENDENCIES:		stdtype.h, mps_lp.h, myalloc.h, sort_lab.h, work_vec.h,
+					print.h
+					<math.h>
+
+--------------------------------------------------------------------------------
+
+==> lexer.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming - general purpose.
+PROJECT CODE:		---------------
+PROJECT FULL NAME:	---------------
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	---------------
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	lexer.cpp
+CREATED:			1993.10.10
+LAST MODIFIED:		1995.10.23
+
+DEPENDENCIES:		compile.h, error.h, stdtype.h, lexer.h, mps_lp.h
+					<stdio.h>, <ctype.h>, <stdlib.h>, <assert.h>
+
+--------------------------------------------------------------------------------
+
+
+==> lp_sol.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear optimization supporting header
+PROJECT CODE:		Simplex.
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej P. Wierzbicki
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	lp_sol.cc
+CREATED:			1995.03.03
+LAST MODIFIED:		1996.06.21
+
+DEPENDENCIES:		lp_sol.h, stdtype.h, smartptr.h, msp_lp.h, sort_lab.h,
+					lp_codes.h
+					<assert.h>
+
+
+==> main_arg.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Argument parsing for the main module.
+PROJECT CODE:		REGULARIXED DECOMPOSITION
+PROJECT FULL NAME:	Implementation of the regularized decomposition for two
+					stage linear programs.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej Ruszczynski
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	main_arg.cpp
+CREATED:			1995.08.25
+LAST MODIFIED:		1995.11.15
+
+DEPENDENCIES:		error.h, print.h, stdtype.h, simplex.h, std_tmpl.h, 
+					<stdio.h>, <stdlib.h>, <ctype.h>, <assert.h>
+
+--------------------------------------------------------------------------------
+
+==> main.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		The main module.
+PROJECT CODE:		REGULARIXED DECOMPOSITION
+PROJECT FULL NAME:	Implementation of the regularized decomposition for two
+					stage linear programs.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej Ruszczynski
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	main.cpp
+CREATED:			1994.08.17
+LAST MODIFIED:		1997.02.21
+
+DEPENDENCIES:		error.h, vec_pool.h, smartptr.h, memblock.h, print.h,
+					smartdcl.h, parsemps.h, stdtype.h, mps_lp.h, simplex.h, 
+					sort_lab.h, std_tmpl.h, myalloc.h, smplx_lp.h, solv_lp.h, 
+					compile.h, lp_codes.h, history.h, parsespc.h, inverse.h,
+					scenario.h, linklist.h, subprobl.h, solver.h, solvcode.h,
+
+==> makelab.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Tool-specific header
+PROJECT CODE:		SCE-to-STO converter
+PROJECT FULL NAME:	Multistage stochastic problem converter
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. A. Ruszczynski
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	makelab.cpp
+CREATED:			1996.02.06
+LAST MODIFIED:		1996.03.19
+
+DEPENDENCIES:		makelab.h, stdtype.h, error.h
+					<assert.h>, <stdio.h>
+
+--------------------------------------------------------------------------------
+
+
+==> mast_sol.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Stochastic programming core code
+PROJECT CODE:		Regularized decomposition
+PROJECT FULL NAME:	Implementation of the regularized decomposition of
+					Ruszczynski with primal simplex method for subproblem
+					solution.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. A. Ruszczynski
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	mast_sol.cpp
+CREATED:			1994.07.21
+LAST MODIFIED:		1996.06.21
+
+DEPENDENCIES:		mast_sol.h, std_math.h
+					<assert.h>
+
+
+==> memblock.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		General purpose block defining a memory management class.
+PROJECT CODE:		MEMORY BLOCKS
+PROJECT FULL NAME:	Implementation of memory block manager.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	-----------------
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	memblock.cpp
+CREATED:			1994.04.11
+LAST MODIFIED:		1996.09.20
+
+DEPENDENCIES:		memblock.h, error.h,
+					<assert.h>
+
+--------------------------------------------------------------------------------
+
+
+==> mps_lp.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming - general purpose.
+PROJECT CODE:		---------------
+PROJECT FULL NAME:	---------------
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	---------------
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	mps_lp.cpp
+CREATED:			1993.09.16
+LAST MODIFIED:		1995.12.27
+
+DEPENDENCIES:		stdtype.h, mps_lp.h, myalloc.h, sort_lab.h, work_vec.h
+					<math.h>
+
+--------------------------------------------------------------------------------
+
+
+==> num_elim.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming, linear problem presolving.
+PROJECT CODE:		PRESOLVER
+PROJECT FULL NAME:	Linear problem presolver implementation.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	dr Jacek Gondzio, prof. Andrzej P. Wierzbicki
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	num_elim.cpp
+CREATED:			1994.02.20
+LAST MODIFIED:		1995.10.05
+
+DEPENDENCIES:		std_math.h, std_tmpl.h, work_vec.h, smartptr.h, error.h,
+					memblock.h, smartdcl.h, sptr_deb.h, sptr_ndb.h, vec_pool.h,
+					presolve.h, simplex.h, stdtype.h, lp_codes.h, solv_lp.h,
+					compile.h, mps_lp.h, sort_lab.h, myalloc.h, cl_list.h
+					<assert.h>
+
+==> option.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		General purpose code
+PROJECT CODE:		--------------------
+PROJECT FULL NAME:	--------------------
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	--------------------
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	option.cpp
+CREATED:			1994.12.28
+LAST MODIFIED:		1996.10.07
+
+DEPENDENCIES:		option.h, stdtype.h, error.h, 
+					<stdlib.h>, <assert.h>, <string.h>
+
+--------------------------------------------------------------------------------
+
+
+==> parsemps.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming - general purpose.
+PROJECT CODE:		---------------
+PROJECT FULL NAME:	---------------
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	---------------
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	parsemps.cpp
+CREATED:			1993.09.17
+LAST MODIFIED:		1996.10.02
+
+DEPENDENCIES:		compile.h, error.h, stdtype.h, mps_lp.h, lp_codes.h,
+					parsemps.h, lexer.h
+					<stdio.h>, <ctype.h>, <stdlib.h>, <assert.h>
+
+--------------------------------------------------------------------------------
+
+==> parsespc.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming - program configuration file reading.
+PROJECT CODE:		Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	dr Jacek Gondzio.
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	parsespc.cpp
+CREATED:			1992.09.17
+LAST MODIFIED:		1995.10.27
+
+DEPENDENCIES:		compile.h, stdtype.h, std_tmpl.h, error.h, parsespc.h,
+					lexer.h, simplex.h, solvtol.h
+					<stdio.h>
+
+
+==> parsstoc.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Stochastic data file parser.
+PROJECT CODE:		REGULARIXED DECOMPOSITION
+PROJECT FULL NAME:	Implementation of the regularized decomposition for two
+					stage linear programs.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej Ruszczynski
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	parsstoc.cpp
+CREATED:			1994.08.17
+LAST MODIFIED:		1995.08.24
+
+DEPENDENCIES:		lexer.h, error.h, parsstoc.h, scenario.h
+					<assert.h>
+
+--------------------------------------------------------------------------------
+
+==> periods.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		File input routine.
+PROJECT CODE:		REGULARIXED DECOMPOSITION
+PROJECT FULL NAME:	Implementation of the regularized decomposition for two
+					stage linear programs.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej Ruszczynski
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	periods.cpp
+CREATED:			1995.12.27
+LAST MODIFIED:		1996.01.30
+
+DEPENDENCIES:		read_tim.h, mps_lp.h, stdtype.h, smartptr.h, print.h,
+					<stdio.h>
+
+--------------------------------------------------------------------------------
+
+==> postsolv.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming, linear problem postsolving.
+PROJECT CODE:		PRESOLVER
+PROJECT FULL NAME:	Linear problem presolver.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	dr Jacek Gondzio, prof. Andrzej P. Wierzbicki
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	postsolv.cpp
+CREATED:			1994.05.08
+LAST MODIFIED:		1996.10.07
+
+DEPENDENCIES:		std_tmpl.h, solution.h, compile.h, smartptr.h,
+					error.h, memblock.h, smartdcl.h, sptr_deb.h, sptr_ndb.h,
+					stdtype.h, myalloc.h, simplex.h, postsolv.h, my_defs.h
+					<assert.h>, <stdio.h>
+
+
+==> pp_integ.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming, linear problem presolving.
+PROJECT CODE:		PRESOLVER
+PROJECT FULL NAME:	Linear problem presolver implementation.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	dr Jacek Gondzio, prof. Andrzej P. Wierzbicki
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	pp_integ.cpp
+CREATED:			1994.01.12
+LAST MODIFIED:		1996.02.03
+
+DEPENDENCIES:		presolve.h, simplex.h, error.h, smartptr.h, memblock.h,
+					smartdcl.h, sptr_deb.h, sptr_ndb.h, stdtype.h, lp_codes.h,
+					solv_lp.h, std_tmpl.h, compile.h, mps_lp.h, sort_lab.h,
+					myalloc.h, std_math.h, cl_list.h
+
+
+==> pp_primi.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming, linear problem presolving.
+PROJECT CODE:		PRESOLVER
+PROJECT FULL NAME:	Linear problem presolver implementation.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	dr Jacek Gondzio, prof. Andrzej P. Wierzbicki
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	pp_primi.cpp
+CREATED:			1993.10.07
+LAST MODIFIED:		1996.02.03
+
+DEPENDENCIES:		std_tmpl.h, std_math.h, presolve.h, simplex.h, error.h,
+					smartptr.h, memblock.h, smartdcl.h, sptr_deb.h, sptr_ndb.h,
+					stdtype.h, lp_codes.h, solv_lp.h, compile.h, mps_lp.h,
+					myalloc.h, cl_list.h, postsolv.h, my_defs.h
+					<stdio.h>, <assert.h>
+
+==> pp_simpl.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming, linear problem presolving.
+PROJECT CODE:		PRESOLVER
+PROJECT FULL NAME:	Linear problem presolver implementation.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	dr Jacek Gondzio, prof. Andrzej P. Wierzbicki
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	pp_simpl.cpp
+CREATED:			1994.01.12
+LAST MODIFIED:		1995.10.24
+
+DEPENDENCIES:		std_tmpl.h, presolve.h, simplex.h, error.h, smartptr.h,
+					memblock.h, smartdcl.h, sptr_deb.h, sptr_ndb.h, stdtype.h,
+					lp_codes.h, solv_lp.h, compile.h, mps_lp.h, sort_lab.h,
+					myalloc.h, std_math.h, cl_list.h
+					<math.h>, assert.h
+
+==> pres_act.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming, linear problem presolving.
+PROJECT CODE:		PRESOLVER
+PROJECT FULL NAME:	Linear problem presolver implementation.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	dr Jacek Gondzio, prof. Andrzej P. Wierzbicki
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	pres_act.cpp
+CREATED:			1994.05.08
+LAST MODIFIED:		1996.02.03
+
+DEPENDENCIES:		std_math.h, std_tmpl.h, smartptr.h, error.h, memblock.h,
+					smartdcl.h, sptr_deb.h, sptr_ndb.h, solution.h, compile.h,
+					stdtype.h, lp_codes.h, postsolv.h, my_defs.h,
+					simplex.h, myalloc.h
+					<stdio.h>, <assert.h>
+
+==> presolve.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming, linear problem presolving.
+PROJECT CODE:		PRESOLVER
+PROJECT FULL NAME:	Linear problem presolver implementation.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	dr Jacek Gondzio, prof. Andrzej P. Wierzbicki
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	presolve.cpp
+CREATED:			1993.10.07
+LAST MODIFIED:		1996.02.15
+
+DEPENDENCIES:		myalloc.h, error.h, std_tmpl.h, std_math.h, print.h,
+					presolve.h, simplex.h, smartptr.h, memblock.h, smartdcl.h,
+					sptr_deb.h, sptr_ndb.h, stdtype.h, lp_codes.h, solv_lp.h,
+					compile.h, mps_lp.h, sort_lab.h, cl_list.h, postsolv.h,
+					my_defs.h
+
+==> print.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		General purpose header
+PROJECT CODE:		----------------------
+PROJECT FULL NAME:	----------------------
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	----------------------
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	print.cpp
+CREATED:			1995.08.12
+LAST MODIFIED:		1995.10.31
+
+DEPENDENCIES:		print.h
+					<stdio.h>, <assert.h>, <stdarg.h>
+
+--------------------------------------------------------------------------------
+
+
+==> q1.cpp <==
+/*==============================================================================
+                         FILE Q1
+    Q1CMTE - Upper Level Algorithm of the REGULARIZED DECOMPOSITION METHOD
+
+    Q1SLCT - AUXILIARY ROUTINE FOR SELECTING ACTIVE COMMITTE MEMBERS
+		and other functions that work with these
+--------------------------------------------------------------------------------
+    WRITTEN BY A. RUSZCZYNSKI , INSTITUT FUER OPERATIONS RESEARCH,
+    UNIVERSITAET ZUERICH, APRIL 1985.
+    DATE LAST MODIFIED: NOVEMBER 1985.
+--------------------------------------------------------------------------------
+    q1.f -- translated by f2c (version 19940705.1). from FORTRAN
+--------------------------------------------------------------------------------
+    Modified by Artur Swietanowski.
+	Then by Guzin Bayraksan.  
+	Last modified: Feb 20, 2003 
+===============================================================================*/
+
+
+#include <math.h>
+
+==> q2.cpp <==
+/* ========================================================================	*/
+/*                          FILE Q2											*/
+/*																			*/
+/*     Q2MSTR - ALGORITHM FOR SOLVING THE REGULARIZED MASTER PROBLEM.		*/
+/*     Called by: Q1CMTE													*/
+/* ------------------------------------------------------------------------	*/
+/*     WRITTEN BY A. RUSZCZYNSKI , INSTITUT FUER OPERATIONS RESEARCH,		*/
+/*     UNIVERSITAET ZUERICH, MARCH 1985.									*/
+/* ========================================================================	*/
+/*      q2.f -- translated by f2c (version 19940705.1).						*/
+/*--------------------------------------------------------------------------*/
+/*		Modified by Artur Swietanowski										*/
+/* ========================================================================	*/
+
+
+#include <assert.h>
+#include <math.h>
+
+#ifndef __QDX_LOC_H__
+#	include "qdx_loc.h"
+
+==> q3.cpp <==
+/* ========================================================================	*/
+/*                           FILE Q3										*/
+/*				Routines for Solving Regularized Master						*/
+/*																			*/
+/*     Q3CHBD - TO CHOOSE A VIOLATED BOUND,									*/
+/*     Q3CHCT - TO CHOOSE A VIOLATED CUT,									*/
+/*     Q3CORR - TO MAKE A STEP IN THE DUAL VARIABLES,						*/
+/*     Q3GETY - TO RECOVER THE PRIMAL SOLUTION,								*/
+/*     Q3LDEP - TO FIND COEFFICIENTS OF LINEAR DEPENDENCE,					*/
+/*     Q3PRIC - TO FIND DUAL VARIABLES FOR THE NEW ACTIVE SET,				*/
+/*     Q3RESP - TO RESET DUAL VARIABLES SO THAT THEY SUM TO ONE,			*/
+/*     Q3RESR - TO RESET THE WHOLE FACTORIZATION,							*/
+/*     Q3RESZ - TO RESET FACTORIZATION PARTS DEPENDENT ON					*/
+/*              THE REGULARIZING POINT AND ON THE PENALTY.					*/
+/*																			*/
+/* ------------------------------------------------------------------------	*/
+/*     WRITTEN BY A. RUSZCZYNSKI , INSTITUT FUER OPERATIONS RESEARCH,		*/
+/*     UNIVERSITAET ZUERICH, MARCH 1985.									*/
+/*     DATE LAST MODIFIED: NOVEMBER 1985.									*/
+/*		q3.f -- translated by f2c (version 19940705.1).						*/
+
+==> q4.cpp <==
+/* =======================================================================	*/
+/*                          FILE Q4											*/
+/*		Routines for Active Set Strategy used in Solving Reg Master			*/
+/*																			*/
+/*     Q4ADBD - TO ADD A BOUND TO THE ACTIVE SET,							*/
+/*     Q4ADCT - TO ADD A CUT TO THE ACTIVE SET,								*/
+/*     Q4DTBD - TO DELETE A BOUND FROM THE ACTIVE SET,						*/
+/*     Q4DTCT - TO DELETE A CUT FROM THE ACTIVE SET,						*/
+/*     Q4ORTG - TO ORTHOGONALIZE A NEW CUT									*/
+/*              WITH RESPECT TO THE ACTIVE SET,								*/
+/*     Q4SBCL - TO UPDATE FACTORS WHEN THE BASIS CHANGES.					*/
+/* ------------------------------------------------------------------------	*/
+/*     WRITTEN BY A. RUSZCZYNSKI , INSTITUT FUER OPERATIONS RESEARCH,		*/
+/*     UNIVERSITAET ZUERICH, MARCH 1985.									*/
+/*     DATE LAST MODIFIED: March 1996										*/
+/* =======================================================================	*/
+/*       Translated from FORTRAN by f2c (version 19940705.1).				*/
+/*       Modified by Artur Swietanowski.                                    */
+/* =======================================================================	*/
+
+
+==> q5.cpp <==
+/*------------------------------------------------------------------------------
+                          FILE Q5
+			Routines for advanced matrix operations
+
+     Q5ADRW - PLANE REFLECTIONS TO ADD A ROW,
+     Q5DLCO - PLANE REFLECTIONS TO DELETE A COLUMN,
+     Q5DLRW - PLANE REFLECTIONS TO DELETE A ROW, 
+     Q5GVNS - TO COMPUTE THE GIVENS REFLECTOR, 
+     Q5REFL - TO APPLY THE REFLECTOR TO TWO VECTORS, 
+     Q5REXP - TO ADD A COLUMN TO A TRIANGULAR MATRIX STORED BY ROWS, 
+     Q5RPCK - TO DELETE A COLUMN AND THE FOLLOWING DIAGONAL ELEMENTS 
+              FROM A MATRIX STORED BY ROWS, 
+     Q5TRIS - TO SOLVE A TRIANGULAR SYSTEM OF EQUATIONS. 
+--------------------------------------------------------------------------------
+     WRITTEN BY A. RUSZCZYNSKI , INSTITUT FUER OPERATIONS RESEARCH, 
+     UNIVERSITAET ZUERICH, FEBRUARY 1985. 
+     DATE LAST MODIFIED: OCTOBER 1985. 
+------------------------------------------------------------------------------*/
+/*   q5.f -- translated by f2c (version 19940705.1).
+     You must link the resulting object file with the libraries:
+
+==> q6.cpp <==
+/* ======================================================================= */
+/*                           FILE Q6                                       */
+/*     AUXILIARY SUBROUTINES FOR PERFORMING SIMPLE ARRAY OPERATIONS        */
+/* ======================================================================= */
+/*																		   */
+/*	q6.f -- translated by f2c (version 19940705.1).
+	You must link the resulting object file with the libraries:
+	-lf2c -lm   (in that order)
+/* ----------------------------------------------------------------------- */
+/*	Modified by Artur Swietanowski.										   */
+/* ----------------------------------------------------------------------- */
+
+
+
+#include <assert.h>
+
+#ifndef __QDX_LOC_H__
+#	include "qdx_loc.h"
+#endif
+
+
+==> rand01.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		General purpose mathematical module.
+PROJECT CODE:		REGULARIZED DECOMPOSITION
+PROJECT FULL NAME:	Implementation of the regularized decomposition for two
+					stage linear programs
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Amdrzej Ruszczynski
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	rand01.cpp
+CREATED:			1994.08.13
+LAST MODIFIED:		1996.09.14
+
+DEPENDENCIES:		rand01.h
+					<assert.h>
+
+--------------------------------------------------------------------------------
+
+==> rd_solv.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Subproblem solution routines.
+PROJECT CODE:		REGULARIXED DECOMPOSITION
+PROJECT FULL NAME:	Implementation of the regularized decomposition for two
+					stage linear programs.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej Ruszczynski
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	rd_solv.cpp
+CREATED:			1994.12.07
+LAST MODIFIED:		1996.09.16
+
+DEPENDENCIES:		rd_solv.h
+					<assert.h>
+
+--------------------------------------------------------------------------------
+
+==> rd_sublp.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Stochastic data parser and scenario generator.
+PROJECT CODE:		REGULARIXED DECOMPOSITION
+PROJECT FULL NAME:	Implementation of the regularized decomposition for two
+					stage linear programs.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej Ruszczynski
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	rd_sublp.cpp
+CREATED:			1995.07.27
+LAST MODIFIED:		1996.04.05
+
+DEPENDENCIES:		rd_sublp.h, smplx_lp.h, solv_lp.h, mps_lp.h, scenario.h
+					<assert.h>
+
+--------------------------------------------------------------------------------
+
+==> read_act.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming, linear problem postsolving.
+PROJECT CODE:		PRESOLVER
+PROJECT FULL NAME:	Linear problem presolver.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	dr Jacek Gondzio, prof. Andrzej P. Wierzbicki
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	read_act.cpp
+CREATED:			1995.10.06
+LAST MODIFIED:		1996.06.21
+
+DEPENDENCIES:		std_tmpl.h, solution.h, compile.h, smartptr.h,
+					error.h, memblock.h, smartdcl.h, sptr_deb.h, sptr_ndb.h,
+					stdtype.h, myalloc.h, simplex.h, postsolv.h, my_defs.h
+					<assert.h>, <stdio.h>
+
+
+==> read_lp.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming - general purpose.
+PROJECT CODE:		---------------
+PROJECT FULL NAME:	---------------
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	---------------
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	read_lp.cpp
+CREATED:			1993.09.16
+LAST MODIFIED:		1996.09.21
+
+DEPENDENCIES:		stdtype.h, std_tmpl.h, error.h, myalloc.h, mps_lp.h,
+					lexer.h, parsemps.h, lp_codes.h, simplex.h, print.h,
+					std_math.h
+					<stdio.h>, <string.h>, <math.h>, <assert.h>
+
+
+==> read_tim.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		File input routine.
+PROJECT CODE:		REGULARIXED DECOMPOSITION
+PROJECT FULL NAME:	Implementation of the regularized decomposition for two
+					stage linear programs.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej Ruszczynski
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	read_tim.cpp
+CREATED:			1994.08.16
+LAST MODIFIED:		1995.08.12
+
+DEPENDENCIES:		read_tim.h, mps_lp.h, stdtype.h, smartptr.h, print.h,
+					<stdio.h>
+
+--------------------------------------------------------------------------------
+
+==> rm_infea.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Pseudo - simplex type optimizer core code.
+PROJECT CODE:		Simplex
+PROJECT FULL NAME:	Advanced implementation of the revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej P. Wierzbicki, dr Jacek Gondzio
+ADD. SUPPORT:		prof. Andrzej Ruszczynski
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	rm_infeas.cpp
+CREATED:			1994.06.11
+LAST MODIFIED:		1996.09.21
+
+DEPENDENCIES:		solver.h, std_math.h, smplx_lp.h, std_tmpl.h, work_vec.h
+					<assert.h>, <math.h>
+
+
+==> row_anal.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming, linear problem presolving.
+PROJECT CODE:		PRESOLVER
+PROJECT FULL NAME:	Linear problem presolver implementation.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	dr Jacek Gondzio, prof. Andrzej P. Wierzbicki
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	row_anal.cpp
+CREATED:			1994.01.12
+LAST MODIFIED:		1995.10.24
+
+DEPENDENCIES:		std_math.h, std_tmpl.h, presolve.h, simplex.h, error.h,
+					smartptr.h, memblock.h, smartdcl.h, sptr_deb.h, sptr_ndb.h,
+					stdtype.h, lp_codes.h, solv_lp.h, compile.h, mps_lp.h,
+					sort_lab.h, myalloc.h, cl_list.h
+
+
+==> scenario.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Stochastic data parser and scenario generator.
+PROJECT CODE:		REGULARIXED DECOMPOSITION
+PROJECT FULL NAME:	Implementation of the regularized decomposition for two
+					stage linear programs.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej Ruszczynski
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	scenario.cpp
+CREATED:			1994.07.27
+LAST MODIFIED:		1996.02.22
+
+DEPENDENCIES:		stdtype.h, smartptr.h, scenario.h, error.h, std_math.h,
+					lexer.h
+					<assert.h>, <stdlib.h>
+
+
+==> scentree.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Stochastic data parser and scenario generator.
+PROJECT CODE:		REGULARIXED DECOMPOSITION
+PROJECT FULL NAME:	Implementation of the regularized decomposition for two
+					stage linear programs.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej Ruszczynski
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	scentree.cpp
+CREATED:			1994.08.07
+LAST MODIFIED:		1996.02.03
+
+DEPENDENCIES:		scentree.h, scenario.h, error.h, print.h
+		            <assert.h>
+
+--------------------------------------------------------------------------------
+
+==> sc_tree.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Stochastic data parser and scenario generator.
+PROJECT CODE:		REGULARIXED DECOMPOSITION
+PROJECT FULL NAME:	Implementation of the regularized decomposition for two
+					stage linear programs.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej Ruszczynski
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	sc_tree.cpp
+CREATED:			1996.01.20
+LAST MODIFIED:		1996.04.09
+
+DEPENDENCIES:		sc_tree.h, extendar.h, error.h, smartptr.h, smartdcl.h,
+					sptr_ndb.h, myalloc.h, std_tmpl.h, sort_lab.h, stdtype.h,
+					simplex.h, solv_lp.h, compile.h, lp_codes.h, mps_lp.h,
+					std_math.h, periods.h, changelp.h, my_defs.h, lexer.h,
+
+==> sing_col.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming, linear problem presolving.
+PROJECT CODE:		PRESOLVER
+PROJECT FULL NAME:	Linear problem presolver implementation.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	dr Jacek Gondzio, prof. Andrzej P. Wierzbicki
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	sing_col.cpp
+CREATED:			1994.01.12
+LAST MODIFIED:		1995.10.29
+
+DEPENDENCIES:		std_tmpl.h, std_math.h, presolve.h, simplex.h, error.h,
+					smartptr.h, memblock.h, smartdcl.h, sptr_deb.h, sptr_ndb.h,
+					stdtype.h, lp_codes.h, solv_lp.h, compile.h, mps_lp.h,
+					sort_lab.h, myalloc.h, cl_list.h, postsolv.h, my_defs.h
+					<assert.h>
+
+==> smplx_lp.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Project core code.
+PROJECT CODE:       Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej P. Wierzbicki
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	smplx_lp.cpp
+CREATED:			1994.03.11
+LAST MODIFIED:		1996.02.03
+
+DEPENDENCIES:		smplx_lp.h, solv_lp.h, mps_lp.h, smartptr.h, std_math.h,
+					print.h
+					<math.h>
+
+
+==> sol_lab.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear optimization supporting header
+PROJECT CODE:		Simplex.
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej P. Wierzbicki
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	sol_lab.cpp
+CREATED:			1995.03.14
+LAST MODIFIED:		1996.06.21
+
+DEPENDENCIES:		sol_lab.h, stdtype.h, smartptr.h, sort_lab.h
+					<assert.h>
+
+--------------------------------------------------------------------------------
+
+==> solution.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear optimization supporting header
+PROJECT CODE:		Simplex.
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej P. Wierzbicki
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	solution.cpp
+CREATED:			1995.03.03
+LAST MODIFIED:		1996.10.07
+
+DEPENDENCIES:		solution.h, stdtype.h, smartptr.h
+					<assert.h>
+
+--------------------------------------------------------------------------------
+
+==> solver1.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Project core code.
+PROJECT CODE:       Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej P. Wierzbicki, dr Jacek Gondzio.
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	solver1.cpp
+CREATED:            1992.09.29
+LAST MODIFIED:		1996.09.16
+
+DEPENDENCIES:       smartptr.h, stdtype.h, error.h, solver.h, smplx_lp.h
+
+--------------------------------------------------------------------------------
+
+
+==> solver2.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Project core code.
+PROJECT CODE:       Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej P. Wierzbicki, dr Jacek Gondzio.
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	solver2.cpp
+CREATED:            1992.09.29
+LAST MODIFIED:		1996.09.21
+
+DEPENDENCIES:       stdtype.h, std_tmpl.h, error.h, solver.h, history.h,
+					solvcode.h, std_math.h, smartptr.h, print.h
+
+--------------------------------------------------------------------------------
+
+==> solver3.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Project core code.
+PROJECT CODE:       Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej P. Wierzbicki, dr Jacek Gondzio.
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	solver3.cpp
+CREATED:			1993.11.01
+LAST MODIFIED:		1996.09.16
+
+DEPENDENCIES:		error.h, std_tmpl.h, stdtype.h, solver.h, solv_lp.h,
+					lp_codes.h, mps_lp.h, inverse.h, solvcode.h, simplex.h,
+					std_math.h, smartptr.h, print.h
+
+
+==> solver4.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Project core code.
+PROJECT CODE:       Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej P. Wierzbicki, dr Jacek Gondzio.
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	solver4.cpp
+CREATED:			1993.11.01
+LAST MODIFIED:		1996.02.14
+
+DEPENDENCIES:		error.h, stdtype.h, solver.h, solv_lp.h, lp_codes.h,
+					mps_lp.h, inverse.h, solvcode.h, simplex.h,
+
+--------------------------------------------------------------------------------
+
+==> solv_lp.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming - simplex-type solvers.
+PROJECT CODE:       Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej P. Wierzbicki
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	solv_lp.cpp
+CREATED:			1993.09.27
+LAST MODIFIED:		1996.04.16
+
+DEPENDENCIES:		stdtype.h, stdtmpl.h, mps_lp.h, solv_lp.h,
+					myalloc.h, lp_codes.h, simplex.h, std_math.h,
+					smartptr.h, work_vec.h, solution.h, print.h
+					<math.h>, <stdlib.h>
+
+==> solvpiv.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Project core code.
+PROJECT CODE:       Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej P. Wierzbicki, dr Jacek Gondzio.
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	solvpiv.cpp
+CREATED:			1993.10.24
+LAST MODIFIED:		1995.11.24
+
+DEPENDENCIES:		solver.h, stdtype.h, solv_lp.h, std_tmpl.h, error.h,
+					lp_codes.h, mps_lp.h, inverse.h, solvcode.h 
+					<math.h>
+
+
+==> solvpric.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Project core code.
+PROJECT CODE:       Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej P. Wierzbicki, dr Jacek Gondzio.
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	solvpric.cpp
+CREATED:			1993.10.24
+LAST MODIFIED:		1996.09.21
+
+DEPENDENCIES:		smartptr.h, solver.h, std_math.h, inverse.h
+					<math.h>
+
+--------------------------------------------------------------------------------
+
+==> solvtol.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Project core code.
+PROJECT CODE:       Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej P. Wierzbicki, dr Jacek Gondzio.
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	solvtol.cpp
+CREATED:			1993.10.24
+LAST MODIFIED:		1996.09.21
+
+DEPENDENCIES:		solver.h, stdtype.h, solv_lp.h, std_tmpl.h, error.h,
+					lp_codes.h, mps_lp.h, inverse.h, solvcode.h, simplex.h,
+					solvtol.h, std_math.h, print.h
+
+
+==> sort_lab.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		General purpose implementation of a sorted array of labels.
+PROJECT CODE:		-------------------
+PROJECT FULL NAME:	-------------------
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	-------------------
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	sort_lab.cpp
+CREATED:			1994.04.28
+LAST MODIFIED:		1996.10.07
+
+DEPENDENCIES:		myalloc.h, std_tmpl.h, smartptr.h, stdtype.h, sort_lab.h
+					<stdlib.h>, <string.h>, <assert.h>
+
+--------------------------------------------------------------------------------
+
+
+==> start_pt.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Project core code.
+PROJECT CODE:       Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej P. Wierzbicki, dr Jacek Gondzio.
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	start_pt.cpp
+CREATED:            1994.04.16
+LAST MODIFIED:		1995.09.12
+
+DEPENDENCIES:       stdtype.h, std_tmpl.h, error.h, solver.h, solvcode.h,
+					std_math.h, smartptr.h, print.h
+
+--------------------------------------------------------------------------------
+
+==> std_math.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		General purpose maths functions.
+PROJECT CODE:		------------
+PROJECT FULL NAME:	------------
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	------------
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	std_math.cpp
+CREATED:			1994.03.30
+LAST MODIFIED:		1994.03.30
+
+DEPENDENCIES:		std_tmpl.h, std_math.h
+					<math.h>
+
+--------------------------------------------------------------------------------
+
+
+==> stochsol.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		General purpose templates
+PROJECT CODE:		REGULARIXED DECOMPOSITION
+PROJECT FULL NAME:	Implementation of the regularized decomposition for two
+					stage linear programs.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej Ruszczynski
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	stochsol.cpp
+CREATED:			1996.06.21
+LAST MODIFIED:		1996.06.21
+
+DEPENDENCIES:		solution.h, stochsol.h
+					<stdio.h>
+
+------------------------------------------------------------------------------*/
+
+==> strdup.cpp <==
+#include <string.h>
+#include <stdlib.h>
+
+#ifndef __STRDUP_H__
+#	include "strdup.h"
+#endif
+
+char *DuplicateString( const char *s )
+{
+	char *c = (char *)malloc( strlen(s) + 1 );
+
+	if( c ) strcpy( c, s );
+	return c;
+}
+
+==> sub_man.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Subproblem solution routines.
+PROJECT CODE:		REGULARIXED DECOMPOSITION
+PROJECT FULL NAME:	Implementation of the regularized decomposition for two
+					stage linear programs.
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	prof. Andrzej Ruszczynski
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	sub_man.cpp
+CREATED:			1994.12.10
+LAST MODIFIED:		1996.10.07
+
+DEPENDENCIES:		sub_man.h, rd_sublp.h, smplx_lp.h, solv_lp.h, mps_lp.h,
+					scenario.h, stdtype.h, smartptr.h, print.h
+					<assert.h>
+
+
+==> time_cnt.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		General purpose - time counter.
+PROJECT CODE:		Simplex
+PROJECT FULL NAME:	Advanced implementation of revised simplex method
+					for large scale linear problems.
+
+AUTHOR:				Artur Swietanowski (solver driver),
+					prof. Andrzej Ruszczynski (factorization routines).
+
+PROJECT SUPERVISOR:	dr Jacek Gondzio.
+
+--------------------------------------------------------------------------------
+
+MODULE NAME:		time_cnt.cpp
+CREATED:			1993.06.02
+LAST MODIFIED:		1996.10.07
+
+DEPENDENCIES:		time_cnt.h, smartptr.h
+
+--------------------------------------------------------------------------------
+
+==> vec_pool.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		General purpose - work vector manager
+PROJECT CODE:		--------------------------
+PROJECT FULL NAME:	--------------------------
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	--------------------------
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	vec_pool.cpp
+CREATED:			1994.04.20
+LAST MODIFIED:		1996.10.07
+
+DEPENDENCIES:		smartptr.h, sptr_ndb.h, sptr_deb.h, error.h, vec_pool.h,
+					std_tmpl.h
+					<stdlib.h>, <string.h>, <assert.h>
+
+--------------------------------------------------------------------------------
+
+==> writ_mps.cpp <==
+/*------------------------------------------------------------------------------
+MODULE TYPE:		Linear programming - general purpose.
+PROJECT CODE:		----------------
+PROJECT FULL NAME:	----------------
+
+MODULE AUTHOR:		Artur Swietanowski.
+
+PROJECT SUPERVISOR:	----------------
+
+--------------------------------------------------------------------------------
+
+SOURCE FILE NAME:	writ_mps.cpp
+CREATED:			1993.09.27
+LAST MODIFIED:		1996.04.16
+
+DEPENDENCIES:		compile.h, mps_lp.h, lp_codes.h, print.h,
+					simplex.h, solv_lp.h, std_math.h, sort_lab.h
+					<stdio.h>, <math.h>, <assert.h>
+
+--------------------------------------------------------------------------------
