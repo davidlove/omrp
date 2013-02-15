@@ -496,7 +496,7 @@ void run( int argc, char *argv[] )
 
 	double zn; 
 	
-	double optg = 1282152.974;   //cep1, for xhat=(650,...,650, 150,...,150)  
+	double optg = //1282152.974;   //cep1, for xhat=(650,...,650, 150,...,150)  
 		//2.833632377;   //pgp2, for xhat=(2.5, 6, 3.5, 4.5)
 		//20.01728866212;  //pgp2, for xhat=(2, 7, 2, 5)
 		//38129.093677509;   //cep1, for xhat=(0,125,875,2500,0,625,1375,3000)  
@@ -504,6 +504,7 @@ void run( int argc, char *argv[] )
                 //164.84;          //apl1p, for xhat = (1111.11, 2300)
 		
 		//11737.350015; //cep1, for xhat=(0,0,1166.67,2500,0,500,1666.67,3000) 
+		1.0821600; //db1, for xhat=(11, 14, 8, 11, 7)
 		
 		
 	double cov = 0.0; 
@@ -583,14 +584,14 @@ void run( int argc, char *argv[] )
 			//solve sampling problem:
 			
 			//this is to accelerate sol of sampling problem (cep1)
-			x1.start[0]= 0.00;
-			x1.start[1]= 0.00;
-			x1.start[2]= 1833.33333333;
-			x1.start[3]= 2500.00;
-			x1.start[4]= 0.00;
-			x1.start[5]= 0.00;
-			x1.start[6]= 2333.33333333;
-			x1.start[7]= 3000.00;
+			//x1.start[0]= 0.00;
+			//x1.start[1]= 0.00;
+			//x1.start[2]= 1833.33333333;
+			//x1.start[3]= 2500.00;
+			//x1.start[4]= 0.00;
+			//x1.start[5]= 0.00;
+			//x1.start[6]= 2333.33333333;
+			//x1.start[7]= 3000.00;
 			
 			//this is to accelerate solution of the sampling problem (pgp2) 
 			//x1.start[0]= 1.5;  
@@ -601,6 +602,13 @@ void run( int argc, char *argv[] )
                         //this is to accelerate solution of the sampling problem (apl1p)
                         //x1.start[0]= 1800.0;
                         //x1.start[1]= 1571.43;
+
+			//this is to accelerate solution of the sampling problem (db1)
+			x1.start[0]= 11.0;
+			x1.start[1]= 13.0;
+			x1.start[2]= 8.0;
+			x1.start[3]= 12.0;
+			x1.start[4]= 7.0;
 
 			master.SetStartingPoint( x1, x1n );  
 			
@@ -646,18 +654,25 @@ void run( int argc, char *argv[] )
 			//x1.start[7]= 3000.00;
 		
 			///cep1, this point is 361% from the optimal, 
-			x1.start[0]= 650;
-			x1.start[1]= 650;
-			x1.start[2]= 650;
-			x1.start[3]= 650;
-			x1.start[4]= 150;
-			x1.start[5]= 150;
-			x1.start[6]= 150;
-			x1.start[7]= 150;
+			//x1.start[0]= 650;
+			//x1.start[1]= 650;
+			//x1.start[2]= 650;
+			//x1.start[3]= 650;
+			//x1.start[4]= 150;
+			//x1.start[5]= 150;
+			//x1.start[6]= 150;
+			//x1.start[7]= 150;
 
                         //apl1p, this point is ?? from the optimal,
                         //x1.start[0]= 1111.11;
                         //x1.start[1]= 2300;
+
+			//db1, this point is 0.006% from the optimal
+			x1.start[0]= 11.0; 
+			x1.start[1]= 14.0;
+			x1.start[2]= 8.0;
+			x1.start[3]= 11.0;
+			x1.start[4]= 7.0;
 		
 
                         // David Love -- Clearling out printed Information
