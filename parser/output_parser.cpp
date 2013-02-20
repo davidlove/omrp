@@ -16,7 +16,8 @@ int main( int argc, char** argv )
    int            batchSize,
                   numBatches,
                   degreesFreedom,
-                  gamma;
+                  gamma,
+                  time;
    double         coverage, 
                   // bias,
                   avgVar,
@@ -139,6 +140,9 @@ int main( int argc, char** argv )
       currentFile.getline( inputLine, LINE_LENGTH, '\n' );
       sscanf( inputLine, "Var CI Size = %lf\n", &varSizeCI);
       
+      // Get computation time
+      currentFile.getline( inputLine, LINE_LENGTH, '\n' );
+      sscanf( inputLine, "Time = %d\n", &time );
 
       // Get the probability of solution overlap
       //currentFile.getline( inputLine, LINE_LENGTH, '\n' );
@@ -163,6 +167,7 @@ int main( int argc, char** argv )
             << '\t' << "Var of CI Width"
             << '\t' << "Size of CI"
             << '\t' << "Var of CI Size"
+            << "\t" << "Computation Time"
             << endl;
       }
       firstLoop = false;
@@ -179,6 +184,7 @@ int main( int argc, char** argv )
          << "\t" << varWidthCI
          << "\t" << sizeCI
          << "\t" << varSizeCI
+         << "\t" << time
          << endl;
    }
    
