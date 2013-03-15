@@ -1,19 +1,47 @@
-function plot_rd( m, file_start, file_end, varargin )
+function plot_rd( m, problem, varargin )
 
 plot_options = {'MarkerSize',8, 'LineWidth',2};
 label_options = {'FontSize', 16};
 LineDesign = {'kx:', 'bo:', 'gd:', 'm>:', 'rs:', 'cx:', ...
     'y<:', 'kp:', 'bh:', 'g+:', 'r*:', 'cx:', 'mo:'};
+legend_text = cell(1,length(m));
+
+% mysql parameters
+outfile = '/tmp/matlab_mysql.txt';
+system_call  = 'mysql omrp -Be ''';
+mysql_select =  'SELECT gamma,cover_prob,ci_width,avg_of_var,var_of_var';
+mysql_from   =  ' FROM run_data INNER JOIN run_desc';
+mysql_on     =  ' ON run_data.name = run_desc.name';
+mysql_where  = [' WHERE run_desc.problem="' problem '"' ...
+                ' AND run_desc.batch_size = '];
+mysql_order  =  ' ORDER BY gamma'''; % Must be ascending order
+system_redir = [' > ' outfile];
+
+G = 1;
+C = 2;
+W = 3;
+A = 4;
+V = 5;
 
 for ii = 1:length(m)
-    clear full;
-    full = load([file_start num2str(m(ii)) file_end]);
-    full = full';
-    gamma = full(1,:);
-    cover = full(2,:);
-    ci = full(3,:);
-    avgvar = full(4,:);
-    varvar = full(5,:);
+    system([ system_call ...
+        mysql_select mysql_from mysql_on mysql_where num2str(m(ii)) mysql_order ...
+        system_redir]);
+    
+    clear temp;
+    temp   = importdata(outfile);
+    
+    assert( strcmp( temp.colheaders{G}, 'gamma' ) )
+    assert( strcmp( temp.colheaders{C}, 'cover_prob' ) )
+    assert( strcmp( temp.colheaders{W}, 'ci_width' ) )
+    assert( strcmp( temp.colheaders{A}, 'avg_of_var' ) )
+    assert( strcmp( temp.colheaders{V}, 'var_of_var' ) )
+    
+    gamma  = temp.data(:,G);
+    cover  = temp.data(:,C);
+    ci     = temp.data(:,W);
+    avgvar = temp.data(:,A);
+    varvar = temp.data(:,V);
     g = gamma / m(ii);
     
     legend_text{ii} = ['m = ' num2str(m(ii))];
