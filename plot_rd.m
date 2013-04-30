@@ -58,7 +58,7 @@ for ii = 1:length(m)
         sw_var = varargin{jj};
         switch sw_var
             case 'cover'
-                figure(2)
+                figure(C)
                 plot(g,cover, LineDesign{ii}, ...
                     plot_options{:} );
                 ylim([0.8,1]);
@@ -66,21 +66,21 @@ for ii = 1:length(m)
                 ylabel('Coverage Probability of CI', label_options{:})
                 hold on
             case 'ci'
-                figure(3)
+                figure(W)
                 plot(g,ci, LineDesign{ii}, ...
                     plot_options{:} );
                 xlabel('\gamma/m', label_options{:})
                 ylabel('Confidence Interval Width', label_options{:})
                 hold on
             case 'avgvar'
-                figure(5)
+                figure(A)
                 plot(g,avgvar, LineDesign{ii}, ...
                     plot_options{:} );
                 xlabel('\gamma/m', label_options{:})
                 ylabel('E[VG]', label_options{:})
                 hold on
             case 'varvar'
-                figure(6)
+                figure(V)
                 plot(g,varvar/varvar(end), LineDesign{ii}, ...
                     plot_options{:} );
                 xlabel('\gamma/m', label_options{:})
@@ -94,7 +94,7 @@ for jj=1:size(varargin,2)
     sw_var = varargin{jj};
     switch sw_var
         case 'cover'
-            figure(2)
+            figure(C)
             x = [0,1];
             y = [.9,.9];
             plot(x, y, 'k-', ...
@@ -102,15 +102,15 @@ for jj=1:size(varargin,2)
             legend(legend_text{:},'Planned coverage', 'Location','SouthWest');
             hold off
         case 'ci'
-            figure(3)
+            figure(W)
             legend(legend_text{:}, 'Location','SouthWest');
             hold off
         case 'avgvar'
-            figure(5)
+            figure(A)
             legend(legend_text{:}, 'Location','Best');
             hold off
         case 'varvar'
-            figure(6)
+            figure(V)
             N = 1:1000;
             theo = (2*N.^2 + 1) ./ (3*N.^2);
             plot(1./N, theo, 'k-', ...
