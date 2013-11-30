@@ -1,8 +1,8 @@
-decomp
-parser/parser
+*/decomp
+*/parser/parser
 
-backup_data
-newer_backup_data
-pre_git_code
+*/backup_data
+*/newer_backup_data
+*/pre_git_code
 
 *.dat
