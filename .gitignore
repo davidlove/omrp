@@ -1,8 +1,13 @@
-*/decomp
-*/parser/parser
-
 */backup_data
 */newer_backup_data
 */pre_git_code
+*/parser
+
+regularized_decomposition/decomp
 
 *.dat
+
+newsvendor/m[0-9][0-9]*
+newsvendor/newsvendor
+newsvendor/Newsvendor_MRP_soln.txt
+
