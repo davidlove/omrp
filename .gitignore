@@ -11,3 +11,6 @@ newsvendor/m[0-9][0-9]*
 newsvendor/newsvendor
 newsvendor/Newsvendor_MRP_soln.txt
 
+sip/sip
+sip/10D_OMRP_soln.txt
+
