@@ -122,7 +122,7 @@ int main( int argc, char** argv )
             << '\t' << "Cover Prob"
             << '\t' << "Width of CI" 
             << '\t' << "Bias"
-            << "\t\t" << "Average of Var"
+            << '\t' << "Average of Var"
             << '\t' << "Variance of Var"
             << '\t' << "Run Time"
             << '\t' << "Run Time/Batch"
@@ -130,10 +130,10 @@ int main( int argc, char** argv )
       }
       outputFile << gamma
          << '\t' << showpoint << setprecision(7) << probOverlap
-         << "\t\t" << setprecision(4) << coverage
-         << "\t\t" << setprecision(4) << widthCI
-         << "\t\t" << setprecision(2) << bias
-         << "\t\t" << setprecision(7) << avgVar
+         << '\t' << setprecision(4) << coverage
+         << '\t' << setprecision(4) << widthCI
+         << '\t' << setprecision(2) << bias
+         << '\t' << setprecision(7) << avgVar
          << "\t" << varVar
          << "\t" << runTime
          << "\t" << runTime / numBatches
