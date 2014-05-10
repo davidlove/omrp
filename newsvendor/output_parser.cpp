@@ -11,13 +11,15 @@ using namespace std;
 int main( int argc, char** argv )
 {
    int            batchSize,
-                  gamma;
+                  gamma,
+                  numBatches;
    double         bias,
                   coverage,
                   avgVar,
                   varVar,
                   widthCI,
-                  probOverlap;
+                  probOverlap,
+                  runTime;
    char           c,
                   inputLine[81];
    bool           fileError = false,
@@ -77,8 +79,11 @@ int main( int argc, char** argv )
       // Get the batch nonoverlap
       currentFile.getline( inputLine, 80, '\n' );
       sscanf( inputLine, "Batch Non-overlap : gamma = %d", &gamma );
-      // Skip the next four lines of input
-      for( int ii = 0; ii < 4; ii++ )
+      // Get the number of batches
+      currentFile.getline( inputLine, 80, '\n' );
+      sscanf( inputLine, "Number Batches    :       =  %d", &numBatches );
+      // Skip the next three lines of input
+      for( int ii = 0; ii < 3; ii++ )
       {
          currentFile.getline( inputLine, 80, '\n' );
       }
@@ -101,6 +106,10 @@ int main( int argc, char** argv )
       currentFile.getline( inputLine, 80, '\n' );
       currentFile.getline( inputLine, 80, '\n' );
       sscanf( inputLine, "%lf", &coverage ); 
+      // Get the solution time -- one blank line before
+      currentFile.getline( inputLine, 80, '\n' );
+      currentFile.getline( inputLine, 80, '\n' );
+      sscanf( inputLine, "Time to run the program is :%lf seconds.", &runTime ); 
       // Close the file
       currentFile.close();
       currentFile.clear();
@@ -115,6 +124,8 @@ int main( int argc, char** argv )
             << '\t' << "Bias"
             << "\t\t" << "Average of Var"
             << '\t' << "Variance of Var"
+            << '\t' << "Run Time"
+            << '\t' << "Run Time/Batch"
             << endl;
       }
       outputFile << gamma
@@ -124,6 +135,8 @@ int main( int argc, char** argv )
          << "\t\t" << setprecision(2) << bias
          << "\t\t" << setprecision(7) << avgVar
          << "\t" << varVar
+         << "\t" << runTime
+         << "\t" << runTime / numBatches
          << endl;
    }
    
