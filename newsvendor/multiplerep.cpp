@@ -371,7 +371,18 @@ void GenerateDemand( circ_sort& demand, const int numNewData, const double lower
 
    //sort demand and find optimum solution
    //qsort(demand, (size_t) batchSize, sizeof(double), Compare); 
+#if QUICKSORT
    demand.Sort();
+#endif
+#if BUBBLESORT
+   demand.BubbleSort();
+#endif
+#if PEBBLEBUBBLESORT
+   demand.PebbleBubbleSort();
+#endif
+#if INSERTIONSORT
+   demand.InsertionSort();
+#endif
 
 #if DEBUG_DEMAND
    debugFile<<endl<<"Sorted Demand"; 

@@ -87,6 +87,80 @@ void circ_sort::Sort( void )
    return;
 }
 
+void circ_sort::BubbleSort( void )
+{
+   bool isSorted = false; // this flag will be used to check whether we have to continue the algorithm
+
+   while (!isSorted)
+   {
+      isSorted = true;
+      for( int ii = 0; ii != size - 1; ii++ )
+      {
+         if ( *(sortedBuffer[ii]) > *(sortedBuffer[ii + 1]) )
+         {
+            double* tmp = sortedBuffer[ii];
+            sortedBuffer[ii] = sortedBuffer[ii+1];
+            sortedBuffer[ii+1] = tmp;
+
+            isSorted = false;
+         }
+      }
+   }
+
+   return;
+}
+
+void circ_sort::PebbleBubbleSort( void )
+{
+   bool isSorted = false; // this flag will be used to check whether we have to continue the algorithm
+
+   while (!isSorted)
+   {
+      isSorted = true;
+      for( int ii = 0; ii < size-1; ii++ )
+      {
+         if ( *(sortedBuffer[ii]) > *(sortedBuffer[ii + 1]) )
+         {
+            double* tmp = sortedBuffer[ii];
+            sortedBuffer[ii] = sortedBuffer[ii+1];
+            sortedBuffer[ii+1] = tmp;
+
+            isSorted = false;
+         }
+      }
+      if(isSorted)
+      {
+          break;
+      }
+      for( int ii = size-2; ii <= 0; ii++ )
+      {
+         if ( *(sortedBuffer[ii]) > *(sortedBuffer[ii + 1]) )
+         {
+            double* tmp = sortedBuffer[ii];
+            sortedBuffer[ii] = sortedBuffer[ii+1];
+            sortedBuffer[ii+1] = tmp;
+
+            isSorted = false;
+         }
+      }
+   }
+
+   return;
+}
+
+void circ_sort::InsertionSort( void )
+{
+   for( int ii = 1; ii < size; ii++ )
+   {
+      for( int jj=ii; jj > 0 && *(sortedBuffer[jj-1]) > *(sortedBuffer[jj]); jj-- )
+      {
+         double* tmp = sortedBuffer[jj];
+         sortedBuffer[jj] = sortedBuffer[jj - 1];
+         sortedBuffer[jj - 1] = tmp;
+      }
+   }
+}
+
 void circ_sort::PrintQueue( void )
 {
    for( int ii = 0; ii < size; ii++ )

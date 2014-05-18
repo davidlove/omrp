@@ -17,6 +17,11 @@ using std::string;
 #define DEBUG_OBJ    0  // True to debug optimality gap determination
 #define DEBUG        DEBUG_DEMAND || DEBUG_GAP || DEBUG_COVER || DEBUG_OBJ
 
+#define QUICKSORT        0
+#define BUBBLESORT       0
+#define PEBBLEBUBBLESORT 1
+#define INSERTIONSORT    0
+
 // calculate exact solution value
 double FindObjValue( double xhat, double price, double cost, double a, double b, ofstream& debugFile );
 

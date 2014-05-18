@@ -38,6 +38,9 @@ class circ_sort
          // return ( *a < *b );
       // }
       void Sort( void );
+      void BubbleSort( void );
+      void PebbleBubbleSort( void );
+      void InsertionSort( void );
       void PrintQueue( void );
       void PrintQueue( ofstream& debugFile );
       void PrintSorted( void );
