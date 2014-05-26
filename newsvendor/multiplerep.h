@@ -19,8 +19,8 @@ using std::string;
 
 #define QUICKSORT        0
 #define BUBBLESORT       0
-#define PEBBLEBUBBLESORT 1
-#define INSERTIONSORT    0
+#define PEBBLEBUBBLESORT 0
+#define INSERTIONSORT    1
 
 // calculate exact solution value
 double FindObjValue( double xhat, double price, double cost, double a, double b, ofstream& debugFile );
