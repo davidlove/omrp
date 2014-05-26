@@ -582,33 +582,42 @@ void run( int argc, char *argv[] )
 
 
 			//solve sampling problem:
-			
-			//this is to accelerate sol of sampling problem (cep1)
-			//x1.start[0]= 0.00;
-			//x1.start[1]= 0.00;
-			//x1.start[2]= 1833.33333333;
-			//x1.start[3]= 2500.00;
-			//x1.start[4]= 0.00;
-			//x1.start[5]= 0.00;
-			//x1.start[6]= 2333.33333333;
-			//x1.start[7]= 3000.00;
-			
-			//this is to accelerate solution of the sampling problem (pgp2) 
-			//x1.start[0]= 1.5;  
-			//x1.start[1]= 5.5;
-			//x1.start[2]= 5.0;
-			//x1.start[3]= 5.5;
+			if( oo == 0 )
+                        {
+			   //this is to accelerate sol of sampling problem (cep1)
+			   //x1.start[0]= 0.00;
+			   //x1.start[1]= 0.00;
+			   //x1.start[2]= 1833.33333333;
+			   //x1.start[3]= 2500.00;
+			   //x1.start[4]= 0.00;
+			   //x1.start[5]= 0.00;
+			   //x1.start[6]= 2333.33333333;
+			   //x1.start[7]= 3000.00;
 
-                        //this is to accelerate solution of the sampling problem (apl1p)
-                        //x1.start[0]= 1800.0;
-                        //x1.start[1]= 1571.43;
+			   //this is to accelerate solution of the sampling problem (pgp2) 
+			   //x1.start[0]= 1.5;
+			   //x1.start[1]= 5.5;
+			   //x1.start[2]= 5.0;
+			   //x1.start[3]= 5.5;
 
-			//this is to accelerate solution of the sampling problem (db1)
-			x1.start[0]= 11.0;
-			x1.start[1]= 13.0;
-			x1.start[2]= 8.0;
-			x1.start[3]= 12.0;
-			x1.start[4]= 7.0;
+                           //this is to accelerate solution of the sampling problem (apl1p)
+                           //x1.start[0]= 1800.0;
+                           //x1.start[1]= 1571.43;
+
+			   //this is to accelerate solution of the sampling problem (db1)
+			   x1.start[0]= 11.0;
+			   x1.start[1]= 13.0;
+			   x1.start[2]= 8.0;
+			   x1.start[3]= 12.0;
+			   x1.start[4]= 7.0;
+                        }
+                        else
+                        {
+                           for( int ss = 0; ss < x1n; ss++ )
+                           {
+                               x1.start[ss] = sol->x[ss];
+                           }
+                        }
 
 			master.SetStartingPoint( x1, x1n );  
 			
