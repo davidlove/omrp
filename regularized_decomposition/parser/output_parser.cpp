@@ -156,7 +156,7 @@ int main( int argc, char** argv )
          outputFile << "% Newsvendor Problem with m = " << batchSize << endl;
          outputFile << "\%Gamma" 
             //<< '\t' << "Prob Soln Overlap"
-            << "\t\t" << "Cover Prob"
+            << "\t" << "Cover Prob"
             << "\t" << "Width of CI" 
             //<< '\t' << "Bias"
             << "\t" << "Average of Var"
@@ -173,14 +173,14 @@ int main( int argc, char** argv )
       firstLoop = false;
       outputFile << gamma
          //<< '\t' << showpoint << setprecision(7) << probOverlap
-         << "\t\t" << showpoint << setprecision(4) << coverage
-         << "\t\t" << setprecision(4) << widthCI
-         //<< "\t\t" << setprecision(2) << bias
-         << "\t\t" << setprecision(7) << avgVar
+         << "\t" << showpoint << setprecision(4) << coverage
+         << "\t" << setprecision(4) << widthCI
+         //<< "\t" << setprecision(2) << bias
+         << "\t" << setprecision(7) << avgVar
          << "\t" << varVar
          << "\t" << numBatches
-         << "\t\t" << degreesFreedom
-         << "\t\t" << ciDenom
+         << "\t" << degreesFreedom
+         << "\t" << ciDenom
          << "\t" << varWidthCI
          << "\t" << sizeCI
          << "\t" << varSizeCI
