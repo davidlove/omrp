@@ -18,7 +18,10 @@ p = 0.711; % Power fit found with R
 
 figure(2)
 plot(gammabar, efficiency, 'o', gb, theory,'-', 'LineWidth',2,'MarkerSize',8)
-xlabel('\bar{\gamma|', 'FontSize',16)
+xlabel('\gamma/m', 'FontSize',16)
 ylabel('Relative Computational Efficiency', 'FontSize',16)
 legend('Newsvendor with Insertion Sort, m=1000', 'Theoretical, p=0.71', 'Location','SouthEast')
+
+figure(3)
+CompareNonoverlapping([0,0.333,0.667,0.9], 1000, 1000)
 

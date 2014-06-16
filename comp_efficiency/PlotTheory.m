@@ -22,8 +22,8 @@ for ii = 1:length(p)
     hold on
 end
 plot([0,1],[1,1],'k')
-xlabel('\bar{\gamma}', label_options{:})
+xlabel('\gamma/m', label_options{:})
 ylabel('Relative Computational Efficienty', label_options{:})
-legend(legend_text{:}, 'Location','Best')
+legend(legend_text{:}, 'Location','SouthEast')
 
 hold off
