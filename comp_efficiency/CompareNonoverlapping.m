@@ -21,17 +21,17 @@ for ii = 1:length(p)
 T = gammabar.^p(ii);
 overlap = T.*NumBatches(gammabar,m,k*m);
 
-plot(gammabar,overlap/k-1,LineDesign{ii}, plot_options{:})
+plot(gammabar,(overlap/k-1)*100,LineDesign{ii}, plot_options{:})
 legend_text{ii} = ['Overlapping, p = ' num2str(p(ii))];
 hold on    
 end
 
 nb_effective = k./RelativeVariance(gammabar);
-plot(gammabar,nb_effective/k-1,'k-', plot_options{:})
+plot(gammabar,(nb_effective/k-1)*100,'k-', plot_options{:})
 
 xlabel('\gamma/m', label_options{:})
-ylabel('Work increase over base nonoverlapping', label_options{:})
-ylim([0,2])
+ylabel('Work increase over base MRP (%)', label_options{:})
+ylim([0,200])
 
 legend(legend_text{:}, 'Nonoverlapping', 'Location','NorthEast')
 
