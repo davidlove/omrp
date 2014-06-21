@@ -10,8 +10,8 @@ end
 
 plot_options = {'MarkerSize',8, 'LineWidth',2};
 label_options = {'FontSize', 16};
-LineDesign = {'b-', 'g-', 'm-', 'r-', 'c-', ...
-    'y<:', 'kp:', 'bh:', 'g+:', 'r*:', 'cx:', 'mo:'};
+LineDesign = {'b-', 'g--', 'm-', 'r--', 'c-', ...
+    'y--', 'kp:', 'bh:', 'g+:', 'r*:', 'cx:', 'mo:'};
 legend_text = cell(1,length(m));
 
 for ii = 1:length(p)
@@ -23,7 +23,7 @@ for ii = 1:length(p)
 end
 plot([0,1],[1,1],'k')
 xlabel('\gamma/m', label_options{:})
-ylabel('Relative Computational Efficienty', label_options{:})
+ylabel('Relative Computational Efficiency', label_options{:})
 legend(legend_text{:}, 'Location','SouthEast')
 
 hold off

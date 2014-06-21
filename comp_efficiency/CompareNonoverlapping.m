@@ -11,8 +11,8 @@ end
 
 plot_options = {'MarkerSize',8, 'LineWidth',2};
 label_options = {'FontSize', 16};
-LineDesign = {'b-', 'g-', 'm-', 'r-', 'c-', ...
-    'y<:', 'kp:', 'bh:', 'g+:', 'r*:', 'cx:', 'mo:'};
+LineDesign = {'b-', 'g--', 'm-', 'r--', 'c-', ...
+    'y--', 'kp:', 'bh:', 'g+:', 'r*:', 'cx:', 'mo:'};
 legend_text = cell(1,length(p));
 
 gammabar = (1:m)/m;
