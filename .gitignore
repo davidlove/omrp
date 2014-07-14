@@ -2,6 +2,7 @@
 */newer_backup_data
 */pre_git_code
 */parser
+*/alternate_search
 
 regularized_decomposition/decomp
 
@@ -13,4 +14,6 @@ newsvendor/Newsvendor_MRP_soln.txt
 
 sip/sip
 sip/10D_OMRP_soln.txt
+
+*/.Rhistory
 
